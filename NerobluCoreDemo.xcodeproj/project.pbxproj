@@ -15,6 +15,28 @@
 		CED4C3C41BDBDCDB00BDA4F5 /* NerobluCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CED4C3C31BDBDCDB00BDA4F5 /* NerobluCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED4C3C81BDBDCDB00BDA4F5 /* NerobluCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED4C3C11BDBDCDB00BDA4F5 /* NerobluCore.framework */; };
 		CED4C3C91BDBDCDB00BDA4F5 /* NerobluCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CED4C3C11BDBDCDB00BDA4F5 /* NerobluCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DBFCEA2F1C19B47A0022DAF2 /* NB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1A1C19B47A0022DAF2 /* NB.swift */; };
+		DBFCEA301C19B47A0022DAF2 /* NBActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */; };
+		DBFCEA311C19B47A0022DAF2 /* NBAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */; };
+		DBFCEA321C19B47A0022DAF2 /* NBAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1D1C19B47A0022DAF2 /* NBAppDelegate.swift */; };
+		DBFCEA331C19B47A0022DAF2 /* NBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1E1C19B47A0022DAF2 /* NBColor.swift */; };
+		DBFCEA341C19B47A0022DAF2 /* NBCoreGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1F1C19B47A0022DAF2 /* NBCoreGraphic.swift */; };
+		DBFCEA351C19B47A0022DAF2 /* NBDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA201C19B47A0022DAF2 /* NBDate.swift */; };
+		DBFCEA361C19B47A0022DAF2 /* NBEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA211C19B47A0022DAF2 /* NBEntity.swift */; };
+		DBFCEA371C19B47A0022DAF2 /* NBHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA221C19B47A0022DAF2 /* NBHud.swift */; };
+		DBFCEA381C19B47A0022DAF2 /* NBKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA231C19B47A0022DAF2 /* NBKeyboard.swift */; };
+		DBFCEA391C19B47A0022DAF2 /* NBLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA241C19B47A0022DAF2 /* NBLog.swift */; };
+		DBFCEA3A1C19B47A0022DAF2 /* NBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA251C19B47A0022DAF2 /* NBModel.swift */; };
+		DBFCEA3B1C19B47A0022DAF2 /* NBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA261C19B47A0022DAF2 /* NBNotification.swift */; };
+		DBFCEA3C1C19B47A0022DAF2 /* NBNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA271C19B47A0022DAF2 /* NBNumber.swift */; };
+		DBFCEA3D1C19B47A0022DAF2 /* NBReflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA281C19B47A0022DAF2 /* NBReflection.swift */; };
+		DBFCEA3E1C19B47A0022DAF2 /* NBString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA291C19B47A0022DAF2 /* NBString.swift */; };
+		DBFCEA3F1C19B47A0022DAF2 /* NBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2A1C19B47A0022DAF2 /* NBTableView.swift */; };
+		DBFCEA401C19B47A0022DAF2 /* NBTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2B1C19B47A0022DAF2 /* NBTimer.swift */; };
+		DBFCEA411C19B47A0022DAF2 /* NBUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2C1C19B47A0022DAF2 /* NBUserDefaults.swift */; };
+		DBFCEA421C19B47A0022DAF2 /* NBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2D1C19B47A0022DAF2 /* NBView.swift */; };
+		DBFCEA431C19B47A0022DAF2 /* NBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2E1C19B47A0022DAF2 /* NBViewController.swift */; };
+		F5BAB89BB92F694837802BE4 /* Pods_NerobluCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89370D49A2F13D059BA8B418 /* Pods_NerobluCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +64,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		89370D49A2F13D059BA8B418 /* Pods_NerobluCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NerobluCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DE137B6EC3BCD7BD81D30A /* Pods-NerobluCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NerobluCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-NerobluCore/Pods-NerobluCore.release.xcconfig"; sourceTree = "<group>"; };
 		CED4C3A71BDBDC8900BDA4F5 /* NerobluCoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerobluCoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED4C3AA1BDBDC8900BDA4F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED4C3AC1BDBDC8900BDA4F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +76,28 @@
 		CED4C3C11BDBDCDB00BDA4F5 /* NerobluCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NerobluCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED4C3C31BDBDCDB00BDA4F5 /* NerobluCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NerobluCore.h; sourceTree = "<group>"; };
 		CED4C3C51BDBDCDB00BDA4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0124D9408A4103D5444DA51 /* Pods-NerobluCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NerobluCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NerobluCore/Pods-NerobluCore.debug.xcconfig"; sourceTree = "<group>"; };
+		DBFCEA1A1C19B47A0022DAF2 /* NB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NB.swift; sourceTree = "<group>"; };
+		DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBActionSheet.swift; sourceTree = "<group>"; };
+		DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAlert.swift; sourceTree = "<group>"; };
+		DBFCEA1D1C19B47A0022DAF2 /* NBAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAppDelegate.swift; sourceTree = "<group>"; };
+		DBFCEA1E1C19B47A0022DAF2 /* NBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBColor.swift; sourceTree = "<group>"; };
+		DBFCEA1F1C19B47A0022DAF2 /* NBCoreGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBCoreGraphic.swift; sourceTree = "<group>"; };
+		DBFCEA201C19B47A0022DAF2 /* NBDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBDate.swift; sourceTree = "<group>"; };
+		DBFCEA211C19B47A0022DAF2 /* NBEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBEntity.swift; sourceTree = "<group>"; };
+		DBFCEA221C19B47A0022DAF2 /* NBHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBHud.swift; sourceTree = "<group>"; };
+		DBFCEA231C19B47A0022DAF2 /* NBKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBKeyboard.swift; sourceTree = "<group>"; };
+		DBFCEA241C19B47A0022DAF2 /* NBLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBLog.swift; sourceTree = "<group>"; };
+		DBFCEA251C19B47A0022DAF2 /* NBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBModel.swift; sourceTree = "<group>"; };
+		DBFCEA261C19B47A0022DAF2 /* NBNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBNotification.swift; sourceTree = "<group>"; };
+		DBFCEA271C19B47A0022DAF2 /* NBNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBNumber.swift; sourceTree = "<group>"; };
+		DBFCEA281C19B47A0022DAF2 /* NBReflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBReflection.swift; sourceTree = "<group>"; };
+		DBFCEA291C19B47A0022DAF2 /* NBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBString.swift; sourceTree = "<group>"; };
+		DBFCEA2A1C19B47A0022DAF2 /* NBTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTableView.swift; sourceTree = "<group>"; };
+		DBFCEA2B1C19B47A0022DAF2 /* NBTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTimer.swift; sourceTree = "<group>"; };
+		DBFCEA2C1C19B47A0022DAF2 /* NBUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBUserDefaults.swift; sourceTree = "<group>"; };
+		DBFCEA2D1C19B47A0022DAF2 /* NBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBView.swift; sourceTree = "<group>"; };
+		DBFCEA2E1C19B47A0022DAF2 /* NBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,18 +113,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5BAB89BB92F694837802BE4 /* Pods_NerobluCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25BB8FE23FA8B4E49237EC5C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0124D9408A4103D5444DA51 /* Pods-NerobluCore.debug.xcconfig */,
+				92DE137B6EC3BCD7BD81D30A /* Pods-NerobluCore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B60BF37BBAE02B29DEA5B0D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89370D49A2F13D059BA8B418 /* Pods_NerobluCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CED4C39E1BDBDC8900BDA4F5 = {
 			isa = PBXGroup;
 			children = (
 				CED4C3A91BDBDC8900BDA4F5 /* NerobluCoreDemo */,
 				CED4C3C21BDBDCDB00BDA4F5 /* NerobluCore */,
 				CED4C3A81BDBDC8900BDA4F5 /* Products */,
+				25BB8FE23FA8B4E49237EC5C /* Pods */,
+				B60BF37BBAE02B29DEA5B0D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +174,27 @@
 			isa = PBXGroup;
 			children = (
 				CED4C3C31BDBDCDB00BDA4F5 /* NerobluCore.h */,
+				DBFCEA1A1C19B47A0022DAF2 /* NB.swift */,
+				DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */,
+				DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */,
+				DBFCEA1D1C19B47A0022DAF2 /* NBAppDelegate.swift */,
+				DBFCEA1E1C19B47A0022DAF2 /* NBColor.swift */,
+				DBFCEA1F1C19B47A0022DAF2 /* NBCoreGraphic.swift */,
+				DBFCEA201C19B47A0022DAF2 /* NBDate.swift */,
+				DBFCEA211C19B47A0022DAF2 /* NBEntity.swift */,
+				DBFCEA221C19B47A0022DAF2 /* NBHud.swift */,
+				DBFCEA231C19B47A0022DAF2 /* NBKeyboard.swift */,
+				DBFCEA241C19B47A0022DAF2 /* NBLog.swift */,
+				DBFCEA251C19B47A0022DAF2 /* NBModel.swift */,
+				DBFCEA261C19B47A0022DAF2 /* NBNotification.swift */,
+				DBFCEA271C19B47A0022DAF2 /* NBNumber.swift */,
+				DBFCEA281C19B47A0022DAF2 /* NBReflection.swift */,
+				DBFCEA291C19B47A0022DAF2 /* NBString.swift */,
+				DBFCEA2A1C19B47A0022DAF2 /* NBTableView.swift */,
+				DBFCEA2B1C19B47A0022DAF2 /* NBTimer.swift */,
+				DBFCEA2C1C19B47A0022DAF2 /* NBUserDefaults.swift */,
+				DBFCEA2D1C19B47A0022DAF2 /* NBView.swift */,
+				DBFCEA2E1C19B47A0022DAF2 /* NBViewController.swift */,
 				CED4C3C51BDBDCDB00BDA4F5 /* Info.plist */,
 			);
 			path = NerobluCore;
@@ -150,10 +237,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CED4C3CC1BDBDCDB00BDA4F5 /* Build configuration list for PBXNativeTarget "NerobluCore" */;
 			buildPhases = (
+				4D98368AB6B498E26AC45D91 /* Check Pods Manifest.lock */,
 				CED4C3BC1BDBDCDB00BDA4F5 /* Sources */,
 				CED4C3BD1BDBDCDB00BDA4F5 /* Frameworks */,
 				CED4C3BE1BDBDCDB00BDA4F5 /* Headers */,
 				CED4C3BF1BDBDCDB00BDA4F5 /* Resources */,
+				28FD01E76267FD0B6E0121A3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,6 +259,7 @@
 		CED4C39F1BDBDC8900BDA4F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = NeroBlu;
 				TargetAttributes = {
@@ -220,6 +310,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28FD01E76267FD0B6E0121A3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NerobluCore/Pods-NerobluCore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D98368AB6B498E26AC45D91 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CED4C3A31BDBDC8900BDA4F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -234,6 +357,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBFCEA3F1C19B47A0022DAF2 /* NBTableView.swift in Sources */,
+				DBFCEA3E1C19B47A0022DAF2 /* NBString.swift in Sources */,
+				DBFCEA411C19B47A0022DAF2 /* NBUserDefaults.swift in Sources */,
+				DBFCEA351C19B47A0022DAF2 /* NBDate.swift in Sources */,
+				DBFCEA3A1C19B47A0022DAF2 /* NBModel.swift in Sources */,
+				DBFCEA3C1C19B47A0022DAF2 /* NBNumber.swift in Sources */,
+				DBFCEA2F1C19B47A0022DAF2 /* NB.swift in Sources */,
+				DBFCEA311C19B47A0022DAF2 /* NBAlert.swift in Sources */,
+				DBFCEA331C19B47A0022DAF2 /* NBColor.swift in Sources */,
+				DBFCEA3D1C19B47A0022DAF2 /* NBReflection.swift in Sources */,
+				DBFCEA421C19B47A0022DAF2 /* NBView.swift in Sources */,
+				DBFCEA341C19B47A0022DAF2 /* NBCoreGraphic.swift in Sources */,
+				DBFCEA431C19B47A0022DAF2 /* NBViewController.swift in Sources */,
+				DBFCEA3B1C19B47A0022DAF2 /* NBNotification.swift in Sources */,
+				DBFCEA321C19B47A0022DAF2 /* NBAppDelegate.swift in Sources */,
+				DBFCEA381C19B47A0022DAF2 /* NBKeyboard.swift in Sources */,
+				DBFCEA401C19B47A0022DAF2 /* NBTimer.swift in Sources */,
+				DBFCEA361C19B47A0022DAF2 /* NBEntity.swift in Sources */,
+				DBFCEA371C19B47A0022DAF2 /* NBHud.swift in Sources */,
+				DBFCEA391C19B47A0022DAF2 /* NBLog.swift in Sources */,
+				DBFCEA301C19B47A0022DAF2 /* NBActionSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NerobluCoreDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.neroblu.NerobluCoreDemo;
@@ -363,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NerobluCoreDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.neroblu.NerobluCoreDemo;
@@ -372,7 +518,9 @@
 		};
 		CED4C3CA1BDBDCDB00BDA4F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0124D9408A4103D5444DA51 /* Pods-NerobluCore.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -384,6 +532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.neroblu.NerobluCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -392,7 +541,9 @@
 		};
 		CED4C3CB1BDBDCDB00BDA4F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92DE137B6EC3BCD7BD81D30A /* Pods-NerobluCore.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -438,6 +589,7 @@
 				CED4C3CB1BDBDCDB00BDA4F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
