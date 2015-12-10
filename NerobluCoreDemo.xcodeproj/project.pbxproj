@@ -15,6 +15,7 @@
 		CED4C3C41BDBDCDB00BDA4F5 /* NerobluCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CED4C3C31BDBDCDB00BDA4F5 /* NerobluCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED4C3C81BDBDCDB00BDA4F5 /* NerobluCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED4C3C11BDBDCDB00BDA4F5 /* NerobluCore.framework */; };
 		CED4C3C91BDBDCDB00BDA4F5 /* NerobluCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CED4C3C11BDBDCDB00BDA4F5 /* NerobluCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DB66F4C21C19BD94000648F7 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB66F4C11C19BD94000648F7 /* SwiftyJSON.framework */; };
 		DBFCEA2F1C19B47A0022DAF2 /* NB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1A1C19B47A0022DAF2 /* NB.swift */; };
 		DBFCEA301C19B47A0022DAF2 /* NBActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */; };
 		DBFCEA311C19B47A0022DAF2 /* NBAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */; };
@@ -77,6 +78,7 @@
 		CED4C3C31BDBDCDB00BDA4F5 /* NerobluCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NerobluCore.h; sourceTree = "<group>"; };
 		CED4C3C51BDBDCDB00BDA4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0124D9408A4103D5444DA51 /* Pods-NerobluCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NerobluCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NerobluCore/Pods-NerobluCore.debug.xcconfig"; sourceTree = "<group>"; };
+		DB66F4C11C19BD94000648F7 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		DBFCEA1A1C19B47A0022DAF2 /* NB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NB.swift; sourceTree = "<group>"; };
 		DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBActionSheet.swift; sourceTree = "<group>"; };
 		DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAlert.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB66F4C21C19BD94000648F7 /* SwiftyJSON.framework in Frameworks */,
 				F5BAB89BB92F694837802BE4 /* Pods_NerobluCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +135,7 @@
 		B60BF37BBAE02B29DEA5B0D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB66F4C11C19BD94000648F7 /* SwiftyJSON.framework */,
 				89370D49A2F13D059BA8B418 /* Pods_NerobluCore.framework */,
 			);
 			name = Frameworks;
@@ -526,6 +530,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = NerobluCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -549,6 +554,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = NerobluCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
