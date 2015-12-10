@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NerobluCore"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "NeroBlu iOS Core Library."
   s.description  = <<-DESC
                    A longer description of NerobluCore in Markdown format.
@@ -14,6 +14,8 @@ Pod::Spec.new do |s|
 #  s.license      = { :type => "Apache License", :file => "LICENSE" }
 #  s.author       = { "Nakayasu Yuichi" => "yuichi.nakayasu@gmail.com" }
 #  s.ios.deployment_target = "9.0"
+  s.frameworks = "Foundation", "UIKit"
+  s.dependency 'SwiftyJSON'
   s.source       = { :git => "https://github.com/nakau1/NerobluCore" }
   s.source_files = "NerobluCore/*"
 end
