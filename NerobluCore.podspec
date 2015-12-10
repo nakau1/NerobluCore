@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
 #  s.license      = { :type => "Apache License", :file => "LICENSE" }
 #  s.author       = { "Nakayasu Yuichi" => "yuichi.nakayasu@gmail.com" }
 #  s.ios.deployment_target = "9.0"
-  s.framework    = 'SwiftyJSON'
+  s.frameworks = "Foundation", "UIKit"
+  s.dependency 'SwiftyJSON'
   s.source       = { :git => "https://github.com/nakau1/NerobluCore" }
   s.source_files = "NerobluCore/*"
 end
