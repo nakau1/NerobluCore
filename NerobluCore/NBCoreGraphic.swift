@@ -35,7 +35,7 @@ public func crL(r: CGRect) -> CGFloat { return CGRectGetMinX(r) }
 /// CGRectGetMaxXのラッパ関数
 public func crR(r: CGRect) -> CGFloat { return CGRectGetMaxX(r) }
 /// CGRectGetMaxXのラッパ関数
-public func crB(r: CGRect) -> CGFloat { return CGRectGetMaxX(r) }
+public func crB(r: CGRect) -> CGFloat { return CGRectGetMaxY(r) }
 
 /// CGRectGetMidXのラッパ関数
 public func crMX(r: CGRect) -> CGFloat { return CGRectGetMidX(r) }
