@@ -35,12 +35,22 @@ public func crL(r: CGRect) -> CGFloat { return CGRectGetMinX(r) }
 /// CGRectGetMaxXのラッパ関数
 public func crR(r: CGRect) -> CGFloat { return CGRectGetMaxX(r) }
 /// CGRectGetMaxXのラッパ関数
-public func crB(r: CGRect) -> CGFloat { return CGRectGetMaxX(r) }
+public func crB(r: CGRect) -> CGFloat { return CGRectGetMaxY(r) }
 
 /// CGRectGetMidXのラッパ関数
 public func crMX(r: CGRect) -> CGFloat { return CGRectGetMidX(r) }
 /// CGRectGetMidYのラッパ関数
 public func crMY(r: CGRect) -> CGFloat { return CGRectGetMidY(r) }
+
+/// サイズのみを指定したCGRect構造体を取得(originはCGPointZero)
+public func crS(s: CGSize) -> CGRect {
+    return cr(0, 0, s.width, s.height);
+}
+
+/// 座標のみを指定したCGRect構造体を取得(sizeはCGSizeZero)
+public func crP(p: CGPoint) -> CGRect {
+    return cr(p.x, p.y, 0, 0);
+}
 
 /// CGRect構造体のセンター位置を取得
 public func crC(r: CGRect) -> CGPoint {
