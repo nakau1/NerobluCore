@@ -42,6 +42,16 @@ public func crMX(r: CGRect) -> CGFloat { return CGRectGetMidX(r) }
 /// CGRectGetMidYのラッパ関数
 public func crMY(r: CGRect) -> CGFloat { return CGRectGetMidY(r) }
 
+/// サイズのみを指定したCGRect構造体を取得(originはCGPointZero)
+public func crS(s: CGSize) -> CGRect {
+    return cr(0, 0, s.width, s.height);
+}
+
+/// 座標のみを指定したCGRect構造体を取得(sizeはCGSizeZero)
+public func crP(p: CGPoint) -> CGRect {
+    return cr(p.x, p.y, 0, 0);
+}
+
 /// CGRect構造体のセンター位置を取得
 public func crC(r: CGRect) -> CGPoint {
     let x: CGFloat = crL(r) + (crW(r) / 2.0)
