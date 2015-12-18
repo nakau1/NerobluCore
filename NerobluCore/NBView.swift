@@ -39,4 +39,43 @@ public extension UIView {
             return self
         }
     }
+	
+	/// 親ビュー(nilを渡すと親ビューから削除される)
+	public var parent: UIView? {
+		get {
+			return self.superview
+		}
+		set(v) {
+			if let view = v {
+				view.addSubview(self)
+			} else {
+				self.removeFromSuperview()
+			}
+		}
+	}
+	
+	/// すべてのサブビューを自身から削除する
+	public func removeAllSubviews() {
+		self.subviews.forEach { $0.removeFromSuperview() }
+	}
 }
+
+/// すべての自動リサイズ定義
+public let UIViewAutoresizingAllSize : UIViewAutoresizing = [
+	.FlexibleWidth,
+	.FlexibleHeight,
+]
+
+/// すべての自動リサイズ定義
+public let UIViewAutoresizingAllMargin : UIViewAutoresizing = [
+	.FlexibleTopMargin,
+	.FlexibleLeftMargin,
+	.FlexibleBottomMargin,
+	.FlexibleRightMargin,
+]
+
+/// すべての自動リサイズ定義
+public let UIViewAutoresizingAll : UIViewAutoresizing = [
+	UIViewAutoresizingAllSize,
+	UIViewAutoresizingAllMargin,
+]

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7101DC1C23B84F00270EB8 /* NBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7101DB1C23B84F00270EB8 /* NBButton.swift */; };
+		CE7101DE1C23B87E00270EB8 /* NBConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7101DD1C23B87E00270EB8 /* NBConstraint.swift */; };
+		CE7101E01C23B8E200270EB8 /* NBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7101DF1C23B8E200270EB8 /* NBTextField.swift */; };
+		CE7101E21C23B91100270EB8 /* NBTiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7101E11C23B91100270EB8 /* NBTiledView.swift */; };
 		CED4C3AB1BDBDC8900BDA4F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4C3AA1BDBDC8900BDA4F5 /* AppDelegate.swift */; };
 		CED4C3AD1BDBDC8900BDA4F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4C3AC1BDBDC8900BDA4F5 /* ViewController.swift */; };
 		CED4C3B01BDBDC8900BDA4F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED4C3AE1BDBDC8900BDA4F5 /* Main.storyboard */; };
@@ -67,6 +71,10 @@
 /* Begin PBXFileReference section */
 		89370D49A2F13D059BA8B418 /* Pods_NerobluCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NerobluCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DE137B6EC3BCD7BD81D30A /* Pods-NerobluCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NerobluCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-NerobluCore/Pods-NerobluCore.release.xcconfig"; sourceTree = "<group>"; };
+		CE7101DB1C23B84F00270EB8 /* NBButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBButton.swift; sourceTree = "<group>"; };
+		CE7101DD1C23B87E00270EB8 /* NBConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBConstraint.swift; sourceTree = "<group>"; };
+		CE7101DF1C23B8E200270EB8 /* NBTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTextField.swift; sourceTree = "<group>"; };
+		CE7101E11C23B91100270EB8 /* NBTiledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTiledView.swift; sourceTree = "<group>"; };
 		CED4C3A71BDBDC8900BDA4F5 /* NerobluCoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerobluCoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED4C3AA1BDBDC8900BDA4F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED4C3AC1BDBDC8900BDA4F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -182,7 +190,9 @@
 				DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */,
 				DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */,
 				DBFCEA1D1C19B47A0022DAF2 /* NBAppDelegate.swift */,
+				CE7101DB1C23B84F00270EB8 /* NBButton.swift */,
 				DBFCEA1E1C19B47A0022DAF2 /* NBColor.swift */,
+				CE7101DD1C23B87E00270EB8 /* NBConstraint.swift */,
 				DBFCEA1F1C19B47A0022DAF2 /* NBCoreGraphic.swift */,
 				DBFCEA201C19B47A0022DAF2 /* NBDate.swift */,
 				DBFCEA211C19B47A0022DAF2 /* NBEntity.swift */,
@@ -195,6 +205,8 @@
 				DBFCEA281C19B47A0022DAF2 /* NBReflection.swift */,
 				DBFCEA291C19B47A0022DAF2 /* NBString.swift */,
 				DBFCEA2A1C19B47A0022DAF2 /* NBTableView.swift */,
+				CE7101DF1C23B8E200270EB8 /* NBTextField.swift */,
+				CE7101E11C23B91100270EB8 /* NBTiledView.swift */,
 				DBFCEA2B1C19B47A0022DAF2 /* NBTimer.swift */,
 				DBFCEA2C1C19B47A0022DAF2 /* NBUserDefaults.swift */,
 				DBFCEA2D1C19B47A0022DAF2 /* NBView.swift */,
@@ -365,21 +377,25 @@
 				DBFCEA3E1C19B47A0022DAF2 /* NBString.swift in Sources */,
 				DBFCEA411C19B47A0022DAF2 /* NBUserDefaults.swift in Sources */,
 				DBFCEA351C19B47A0022DAF2 /* NBDate.swift in Sources */,
+				CE7101E21C23B91100270EB8 /* NBTiledView.swift in Sources */,
 				DBFCEA3A1C19B47A0022DAF2 /* NBModel.swift in Sources */,
 				DBFCEA3C1C19B47A0022DAF2 /* NBNumber.swift in Sources */,
 				DBFCEA2F1C19B47A0022DAF2 /* NB.swift in Sources */,
 				DBFCEA311C19B47A0022DAF2 /* NBAlert.swift in Sources */,
 				DBFCEA331C19B47A0022DAF2 /* NBColor.swift in Sources */,
+				CE7101DE1C23B87E00270EB8 /* NBConstraint.swift in Sources */,
 				DBFCEA3D1C19B47A0022DAF2 /* NBReflection.swift in Sources */,
 				DBFCEA421C19B47A0022DAF2 /* NBView.swift in Sources */,
 				DBFCEA341C19B47A0022DAF2 /* NBCoreGraphic.swift in Sources */,
 				DBFCEA431C19B47A0022DAF2 /* NBViewController.swift in Sources */,
 				DBFCEA3B1C19B47A0022DAF2 /* NBNotification.swift in Sources */,
 				DBFCEA321C19B47A0022DAF2 /* NBAppDelegate.swift in Sources */,
+				CE7101DC1C23B84F00270EB8 /* NBButton.swift in Sources */,
 				DBFCEA381C19B47A0022DAF2 /* NBKeyboard.swift in Sources */,
 				DBFCEA401C19B47A0022DAF2 /* NBTimer.swift in Sources */,
 				DBFCEA361C19B47A0022DAF2 /* NBEntity.swift in Sources */,
 				DBFCEA371C19B47A0022DAF2 /* NBHud.swift in Sources */,
+				CE7101E01C23B8E200270EB8 /* NBTextField.swift in Sources */,
 				DBFCEA391C19B47A0022DAF2 /* NBLog.swift in Sources */,
 				DBFCEA301C19B47A0022DAF2 /* NBActionSheet.swift in Sources */,
 			);
