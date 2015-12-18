@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NerobluCore"
-  s.version      = "1.0.2"
+  s.version      = "1.1.0"
   s.summary      = "NeroBlu iOS Core Library."
   s.description  = <<-DESC
                    A longer description of NerobluCore in Markdown format.
