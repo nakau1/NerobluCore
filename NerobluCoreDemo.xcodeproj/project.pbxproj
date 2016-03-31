@@ -7,40 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE7101DC1C23B84F00270EB8 /* NBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7101DB1C23B84F00270EB8 /* NBButton.swift */; };
-		CE7101DE1C23B87E00270EB8 /* NBConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7101DD1C23B87E00270EB8 /* NBConstraint.swift */; };
-		CE7101E01C23B8E200270EB8 /* NBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7101DF1C23B8E200270EB8 /* NBTextField.swift */; };
-		CE7101E21C23B91100270EB8 /* NBTiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7101E11C23B91100270EB8 /* NBTiledView.swift */; };
 		CED4C3AB1BDBDC8900BDA4F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4C3AA1BDBDC8900BDA4F5 /* AppDelegate.swift */; };
 		CED4C3AD1BDBDC8900BDA4F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4C3AC1BDBDC8900BDA4F5 /* ViewController.swift */; };
 		CED4C3B01BDBDC8900BDA4F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED4C3AE1BDBDC8900BDA4F5 /* Main.storyboard */; };
 		CED4C3B21BDBDC8900BDA4F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED4C3B11BDBDC8900BDA4F5 /* Assets.xcassets */; };
 		CED4C3B51BDBDC8900BDA4F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED4C3B31BDBDC8900BDA4F5 /* LaunchScreen.storyboard */; };
-		CED4C3C41BDBDCDB00BDA4F5 /* NerobluCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CED4C3C31BDBDCDB00BDA4F5 /* NerobluCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED4C3C81BDBDCDB00BDA4F5 /* NerobluCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED4C3C11BDBDCDB00BDA4F5 /* NerobluCore.framework */; };
 		CED4C3C91BDBDCDB00BDA4F5 /* NerobluCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CED4C3C11BDBDCDB00BDA4F5 /* NerobluCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DB4BCA811CAD700900C0FCE0 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA5C1CAD700900C0FCE0 /* App.swift */; };
+		DB4BCA831CAD700900C0FCE0 /* NB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA5E1CAD700900C0FCE0 /* NB.swift */; };
+		DB4BCA841CAD700900C0FCE0 /* NBActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA5F1CAD700900C0FCE0 /* NBActionSheet.swift */; };
+		DB4BCA851CAD700900C0FCE0 /* NBAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA601CAD700900C0FCE0 /* NBAlert.swift */; };
+		DB4BCA861CAD700900C0FCE0 /* NBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA611CAD700900C0FCE0 /* NBButton.swift */; };
+		DB4BCA871CAD700900C0FCE0 /* NBCollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA621CAD700900C0FCE0 /* NBCollectionType.swift */; };
+		DB4BCA881CAD700900C0FCE0 /* NBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA631CAD700900C0FCE0 /* NBColor.swift */; };
+		DB4BCA891CAD700900C0FCE0 /* NBConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA641CAD700900C0FCE0 /* NBConstraint.swift */; };
+		DB4BCA8A1CAD700900C0FCE0 /* NBCoreGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA651CAD700900C0FCE0 /* NBCoreGraphic.swift */; };
+		DB4BCA8B1CAD700900C0FCE0 /* NBDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA661CAD700900C0FCE0 /* NBDate.swift */; };
+		DB4BCA8C1CAD700900C0FCE0 /* NBDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA671CAD700900C0FCE0 /* NBDimension.swift */; };
+		DB4BCA8D1CAD700900C0FCE0 /* NBDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA681CAD700900C0FCE0 /* NBDirectory.swift */; };
+		DB4BCA8E1CAD700900C0FCE0 /* NBEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA691CAD700900C0FCE0 /* NBEntity.swift */; };
+		DB4BCA8F1CAD700900C0FCE0 /* NBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA6A1CAD700900C0FCE0 /* NBError.swift */; };
+		DB4BCA901CAD700900C0FCE0 /* NBFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA6B1CAD700900C0FCE0 /* NBFile.swift */; };
+		DB4BCA911CAD700900C0FCE0 /* NBKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA6C1CAD700900C0FCE0 /* NBKeyboard.swift */; };
+		DB4BCA921CAD700900C0FCE0 /* NBLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA6D1CAD700900C0FCE0 /* NBLog.swift */; };
+		DB4BCA931CAD700900C0FCE0 /* NBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA6E1CAD700900C0FCE0 /* NBModel.swift */; };
+		DB4BCA941CAD700900C0FCE0 /* NBNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA6F1CAD700900C0FCE0 /* NBNetworking.swift */; };
+		DB4BCA951CAD700900C0FCE0 /* NBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA701CAD700900C0FCE0 /* NBNotification.swift */; };
+		DB4BCA961CAD700900C0FCE0 /* NBNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA711CAD700900C0FCE0 /* NBNumber.swift */; };
+		DB4BCA981CAD700900C0FCE0 /* NBReflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA731CAD700900C0FCE0 /* NBReflection.swift */; };
+		DB4BCA991CAD700900C0FCE0 /* NBSelectionDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA741CAD700900C0FCE0 /* NBSelectionDialogView.swift */; };
+		DB4BCA9A1CAD700900C0FCE0 /* NBSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA751CAD700900C0FCE0 /* NBSettingViewController.swift */; };
+		DB4BCA9B1CAD700900C0FCE0 /* NBSlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA761CAD700900C0FCE0 /* NBSlideMenu.swift */; };
+		DB4BCA9C1CAD700900C0FCE0 /* NBStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA771CAD700900C0FCE0 /* NBStoryboard.swift */; };
+		DB4BCA9D1CAD700900C0FCE0 /* NBString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA781CAD700900C0FCE0 /* NBString.swift */; };
+		DB4BCA9E1CAD700900C0FCE0 /* NBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA791CAD700900C0FCE0 /* NBTableView.swift */; };
+		DB4BCA9F1CAD700900C0FCE0 /* NBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA7A1CAD700900C0FCE0 /* NBTextField.swift */; };
+		DB4BCAA01CAD700900C0FCE0 /* NBTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA7B1CAD700900C0FCE0 /* NBTimer.swift */; };
+		DB4BCAA11CAD700900C0FCE0 /* NBUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA7C1CAD700900C0FCE0 /* NBUserDefaults.swift */; };
+		DB4BCAA21CAD700900C0FCE0 /* NBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA7D1CAD700900C0FCE0 /* NBView.swift */; };
+		DB4BCAA31CAD700900C0FCE0 /* NBView+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA7E1CAD700900C0FCE0 /* NBView+Dialog.swift */; };
+		DB4BCAA41CAD700900C0FCE0 /* NBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BCA7F1CAD700900C0FCE0 /* NBViewController.swift */; };
+		DB4BCAA51CAD700900C0FCE0 /* NerobluTemp.h in Headers */ = {isa = PBXBuildFile; fileRef = DB4BCA801CAD700900C0FCE0 /* NerobluTemp.h */; };
 		DB66F4C21C19BD94000648F7 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB66F4C11C19BD94000648F7 /* SwiftyJSON.framework */; };
-		DBFCEA2F1C19B47A0022DAF2 /* NB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1A1C19B47A0022DAF2 /* NB.swift */; };
-		DBFCEA301C19B47A0022DAF2 /* NBActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */; };
-		DBFCEA311C19B47A0022DAF2 /* NBAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */; };
-		DBFCEA321C19B47A0022DAF2 /* NBAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1D1C19B47A0022DAF2 /* NBAppDelegate.swift */; };
-		DBFCEA331C19B47A0022DAF2 /* NBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1E1C19B47A0022DAF2 /* NBColor.swift */; };
-		DBFCEA341C19B47A0022DAF2 /* NBCoreGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA1F1C19B47A0022DAF2 /* NBCoreGraphic.swift */; };
-		DBFCEA351C19B47A0022DAF2 /* NBDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA201C19B47A0022DAF2 /* NBDate.swift */; };
-		DBFCEA361C19B47A0022DAF2 /* NBEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA211C19B47A0022DAF2 /* NBEntity.swift */; };
-		DBFCEA371C19B47A0022DAF2 /* NBHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA221C19B47A0022DAF2 /* NBHud.swift */; };
-		DBFCEA381C19B47A0022DAF2 /* NBKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA231C19B47A0022DAF2 /* NBKeyboard.swift */; };
-		DBFCEA391C19B47A0022DAF2 /* NBLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA241C19B47A0022DAF2 /* NBLog.swift */; };
-		DBFCEA3A1C19B47A0022DAF2 /* NBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA251C19B47A0022DAF2 /* NBModel.swift */; };
-		DBFCEA3B1C19B47A0022DAF2 /* NBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA261C19B47A0022DAF2 /* NBNotification.swift */; };
-		DBFCEA3C1C19B47A0022DAF2 /* NBNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA271C19B47A0022DAF2 /* NBNumber.swift */; };
-		DBFCEA3D1C19B47A0022DAF2 /* NBReflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA281C19B47A0022DAF2 /* NBReflection.swift */; };
-		DBFCEA3E1C19B47A0022DAF2 /* NBString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA291C19B47A0022DAF2 /* NBString.swift */; };
-		DBFCEA3F1C19B47A0022DAF2 /* NBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2A1C19B47A0022DAF2 /* NBTableView.swift */; };
-		DBFCEA401C19B47A0022DAF2 /* NBTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2B1C19B47A0022DAF2 /* NBTimer.swift */; };
-		DBFCEA411C19B47A0022DAF2 /* NBUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2C1C19B47A0022DAF2 /* NBUserDefaults.swift */; };
-		DBFCEA421C19B47A0022DAF2 /* NBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2D1C19B47A0022DAF2 /* NBView.swift */; };
-		DBFCEA431C19B47A0022DAF2 /* NBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCEA2E1C19B47A0022DAF2 /* NBViewController.swift */; };
 		F5BAB89BB92F694837802BE4 /* Pods_NerobluCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89370D49A2F13D059BA8B418 /* Pods_NerobluCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,10 +80,6 @@
 /* Begin PBXFileReference section */
 		89370D49A2F13D059BA8B418 /* Pods_NerobluCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NerobluCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DE137B6EC3BCD7BD81D30A /* Pods-NerobluCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NerobluCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-NerobluCore/Pods-NerobluCore.release.xcconfig"; sourceTree = "<group>"; };
-		CE7101DB1C23B84F00270EB8 /* NBButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBButton.swift; sourceTree = "<group>"; };
-		CE7101DD1C23B87E00270EB8 /* NBConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBConstraint.swift; sourceTree = "<group>"; };
-		CE7101DF1C23B8E200270EB8 /* NBTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTextField.swift; sourceTree = "<group>"; };
-		CE7101E11C23B91100270EB8 /* NBTiledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTiledView.swift; sourceTree = "<group>"; };
 		CED4C3A71BDBDC8900BDA4F5 /* NerobluCoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerobluCoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED4C3AA1BDBDC8900BDA4F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED4C3AC1BDBDC8900BDA4F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,31 +88,44 @@
 		CED4C3B41BDBDC8900BDA4F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CED4C3B61BDBDC8900BDA4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED4C3C11BDBDCDB00BDA4F5 /* NerobluCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NerobluCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CED4C3C31BDBDCDB00BDA4F5 /* NerobluCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NerobluCore.h; sourceTree = "<group>"; };
-		CED4C3C51BDBDCDB00BDA4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0124D9408A4103D5444DA51 /* Pods-NerobluCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NerobluCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NerobluCore/Pods-NerobluCore.debug.xcconfig"; sourceTree = "<group>"; };
+		DB4BCA5C1CAD700900C0FCE0 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		DB4BCA5D1CAD700900C0FCE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB4BCA5E1CAD700900C0FCE0 /* NB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NB.swift; sourceTree = "<group>"; };
+		DB4BCA5F1CAD700900C0FCE0 /* NBActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBActionSheet.swift; sourceTree = "<group>"; };
+		DB4BCA601CAD700900C0FCE0 /* NBAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAlert.swift; sourceTree = "<group>"; };
+		DB4BCA611CAD700900C0FCE0 /* NBButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBButton.swift; sourceTree = "<group>"; };
+		DB4BCA621CAD700900C0FCE0 /* NBCollectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBCollectionType.swift; sourceTree = "<group>"; };
+		DB4BCA631CAD700900C0FCE0 /* NBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBColor.swift; sourceTree = "<group>"; };
+		DB4BCA641CAD700900C0FCE0 /* NBConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBConstraint.swift; sourceTree = "<group>"; };
+		DB4BCA651CAD700900C0FCE0 /* NBCoreGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBCoreGraphic.swift; sourceTree = "<group>"; };
+		DB4BCA661CAD700900C0FCE0 /* NBDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBDate.swift; sourceTree = "<group>"; };
+		DB4BCA671CAD700900C0FCE0 /* NBDimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBDimension.swift; sourceTree = "<group>"; };
+		DB4BCA681CAD700900C0FCE0 /* NBDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBDirectory.swift; sourceTree = "<group>"; };
+		DB4BCA691CAD700900C0FCE0 /* NBEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBEntity.swift; sourceTree = "<group>"; };
+		DB4BCA6A1CAD700900C0FCE0 /* NBError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBError.swift; sourceTree = "<group>"; };
+		DB4BCA6B1CAD700900C0FCE0 /* NBFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBFile.swift; sourceTree = "<group>"; };
+		DB4BCA6C1CAD700900C0FCE0 /* NBKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBKeyboard.swift; sourceTree = "<group>"; };
+		DB4BCA6D1CAD700900C0FCE0 /* NBLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBLog.swift; sourceTree = "<group>"; };
+		DB4BCA6E1CAD700900C0FCE0 /* NBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBModel.swift; sourceTree = "<group>"; };
+		DB4BCA6F1CAD700900C0FCE0 /* NBNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBNetworking.swift; sourceTree = "<group>"; };
+		DB4BCA701CAD700900C0FCE0 /* NBNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBNotification.swift; sourceTree = "<group>"; };
+		DB4BCA711CAD700900C0FCE0 /* NBNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBNumber.swift; sourceTree = "<group>"; };
+		DB4BCA731CAD700900C0FCE0 /* NBReflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBReflection.swift; sourceTree = "<group>"; };
+		DB4BCA741CAD700900C0FCE0 /* NBSelectionDialogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBSelectionDialogView.swift; sourceTree = "<group>"; };
+		DB4BCA751CAD700900C0FCE0 /* NBSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBSettingViewController.swift; sourceTree = "<group>"; };
+		DB4BCA761CAD700900C0FCE0 /* NBSlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBSlideMenu.swift; sourceTree = "<group>"; };
+		DB4BCA771CAD700900C0FCE0 /* NBStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBStoryboard.swift; sourceTree = "<group>"; };
+		DB4BCA781CAD700900C0FCE0 /* NBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBString.swift; sourceTree = "<group>"; };
+		DB4BCA791CAD700900C0FCE0 /* NBTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTableView.swift; sourceTree = "<group>"; };
+		DB4BCA7A1CAD700900C0FCE0 /* NBTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTextField.swift; sourceTree = "<group>"; };
+		DB4BCA7B1CAD700900C0FCE0 /* NBTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTimer.swift; sourceTree = "<group>"; };
+		DB4BCA7C1CAD700900C0FCE0 /* NBUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBUserDefaults.swift; sourceTree = "<group>"; };
+		DB4BCA7D1CAD700900C0FCE0 /* NBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBView.swift; sourceTree = "<group>"; };
+		DB4BCA7E1CAD700900C0FCE0 /* NBView+Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NBView+Dialog.swift"; sourceTree = "<group>"; };
+		DB4BCA7F1CAD700900C0FCE0 /* NBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBViewController.swift; sourceTree = "<group>"; };
+		DB4BCA801CAD700900C0FCE0 /* NerobluTemp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NerobluTemp.h; sourceTree = "<group>"; };
 		DB66F4C11C19BD94000648F7 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
-		DBFCEA1A1C19B47A0022DAF2 /* NB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NB.swift; sourceTree = "<group>"; };
-		DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBActionSheet.swift; sourceTree = "<group>"; };
-		DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAlert.swift; sourceTree = "<group>"; };
-		DBFCEA1D1C19B47A0022DAF2 /* NBAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAppDelegate.swift; sourceTree = "<group>"; };
-		DBFCEA1E1C19B47A0022DAF2 /* NBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBColor.swift; sourceTree = "<group>"; };
-		DBFCEA1F1C19B47A0022DAF2 /* NBCoreGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBCoreGraphic.swift; sourceTree = "<group>"; };
-		DBFCEA201C19B47A0022DAF2 /* NBDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBDate.swift; sourceTree = "<group>"; };
-		DBFCEA211C19B47A0022DAF2 /* NBEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBEntity.swift; sourceTree = "<group>"; };
-		DBFCEA221C19B47A0022DAF2 /* NBHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBHud.swift; sourceTree = "<group>"; };
-		DBFCEA231C19B47A0022DAF2 /* NBKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBKeyboard.swift; sourceTree = "<group>"; };
-		DBFCEA241C19B47A0022DAF2 /* NBLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBLog.swift; sourceTree = "<group>"; };
-		DBFCEA251C19B47A0022DAF2 /* NBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBModel.swift; sourceTree = "<group>"; };
-		DBFCEA261C19B47A0022DAF2 /* NBNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBNotification.swift; sourceTree = "<group>"; };
-		DBFCEA271C19B47A0022DAF2 /* NBNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBNumber.swift; sourceTree = "<group>"; };
-		DBFCEA281C19B47A0022DAF2 /* NBReflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBReflection.swift; sourceTree = "<group>"; };
-		DBFCEA291C19B47A0022DAF2 /* NBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBString.swift; sourceTree = "<group>"; };
-		DBFCEA2A1C19B47A0022DAF2 /* NBTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTableView.swift; sourceTree = "<group>"; };
-		DBFCEA2B1C19B47A0022DAF2 /* NBTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTimer.swift; sourceTree = "<group>"; };
-		DBFCEA2C1C19B47A0022DAF2 /* NBUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBUserDefaults.swift; sourceTree = "<group>"; };
-		DBFCEA2D1C19B47A0022DAF2 /* NBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBView.swift; sourceTree = "<group>"; };
-		DBFCEA2E1C19B47A0022DAF2 /* NBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,33 +203,42 @@
 		CED4C3C21BDBDCDB00BDA4F5 /* NerobluCore */ = {
 			isa = PBXGroup;
 			children = (
-				CED4C3C31BDBDCDB00BDA4F5 /* NerobluCore.h */,
-				DBFCEA1A1C19B47A0022DAF2 /* NB.swift */,
-				DBFCEA1B1C19B47A0022DAF2 /* NBActionSheet.swift */,
-				DBFCEA1C1C19B47A0022DAF2 /* NBAlert.swift */,
-				DBFCEA1D1C19B47A0022DAF2 /* NBAppDelegate.swift */,
-				CE7101DB1C23B84F00270EB8 /* NBButton.swift */,
-				DBFCEA1E1C19B47A0022DAF2 /* NBColor.swift */,
-				CE7101DD1C23B87E00270EB8 /* NBConstraint.swift */,
-				DBFCEA1F1C19B47A0022DAF2 /* NBCoreGraphic.swift */,
-				DBFCEA201C19B47A0022DAF2 /* NBDate.swift */,
-				DBFCEA211C19B47A0022DAF2 /* NBEntity.swift */,
-				DBFCEA221C19B47A0022DAF2 /* NBHud.swift */,
-				DBFCEA231C19B47A0022DAF2 /* NBKeyboard.swift */,
-				DBFCEA241C19B47A0022DAF2 /* NBLog.swift */,
-				DBFCEA251C19B47A0022DAF2 /* NBModel.swift */,
-				DBFCEA261C19B47A0022DAF2 /* NBNotification.swift */,
-				DBFCEA271C19B47A0022DAF2 /* NBNumber.swift */,
-				DBFCEA281C19B47A0022DAF2 /* NBReflection.swift */,
-				DBFCEA291C19B47A0022DAF2 /* NBString.swift */,
-				DBFCEA2A1C19B47A0022DAF2 /* NBTableView.swift */,
-				CE7101DF1C23B8E200270EB8 /* NBTextField.swift */,
-				CE7101E11C23B91100270EB8 /* NBTiledView.swift */,
-				DBFCEA2B1C19B47A0022DAF2 /* NBTimer.swift */,
-				DBFCEA2C1C19B47A0022DAF2 /* NBUserDefaults.swift */,
-				DBFCEA2D1C19B47A0022DAF2 /* NBView.swift */,
-				DBFCEA2E1C19B47A0022DAF2 /* NBViewController.swift */,
-				CED4C3C51BDBDCDB00BDA4F5 /* Info.plist */,
+				DB4BCA5C1CAD700900C0FCE0 /* App.swift */,
+				DB4BCA5D1CAD700900C0FCE0 /* Info.plist */,
+				DB4BCA5E1CAD700900C0FCE0 /* NB.swift */,
+				DB4BCA5F1CAD700900C0FCE0 /* NBActionSheet.swift */,
+				DB4BCA601CAD700900C0FCE0 /* NBAlert.swift */,
+				DB4BCA611CAD700900C0FCE0 /* NBButton.swift */,
+				DB4BCA621CAD700900C0FCE0 /* NBCollectionType.swift */,
+				DB4BCA631CAD700900C0FCE0 /* NBColor.swift */,
+				DB4BCA641CAD700900C0FCE0 /* NBConstraint.swift */,
+				DB4BCA651CAD700900C0FCE0 /* NBCoreGraphic.swift */,
+				DB4BCA661CAD700900C0FCE0 /* NBDate.swift */,
+				DB4BCA671CAD700900C0FCE0 /* NBDimension.swift */,
+				DB4BCA681CAD700900C0FCE0 /* NBDirectory.swift */,
+				DB4BCA691CAD700900C0FCE0 /* NBEntity.swift */,
+				DB4BCA6A1CAD700900C0FCE0 /* NBError.swift */,
+				DB4BCA6B1CAD700900C0FCE0 /* NBFile.swift */,
+				DB4BCA6C1CAD700900C0FCE0 /* NBKeyboard.swift */,
+				DB4BCA6D1CAD700900C0FCE0 /* NBLog.swift */,
+				DB4BCA6E1CAD700900C0FCE0 /* NBModel.swift */,
+				DB4BCA6F1CAD700900C0FCE0 /* NBNetworking.swift */,
+				DB4BCA701CAD700900C0FCE0 /* NBNotification.swift */,
+				DB4BCA711CAD700900C0FCE0 /* NBNumber.swift */,
+				DB4BCA731CAD700900C0FCE0 /* NBReflection.swift */,
+				DB4BCA741CAD700900C0FCE0 /* NBSelectionDialogView.swift */,
+				DB4BCA751CAD700900C0FCE0 /* NBSettingViewController.swift */,
+				DB4BCA761CAD700900C0FCE0 /* NBSlideMenu.swift */,
+				DB4BCA771CAD700900C0FCE0 /* NBStoryboard.swift */,
+				DB4BCA781CAD700900C0FCE0 /* NBString.swift */,
+				DB4BCA791CAD700900C0FCE0 /* NBTableView.swift */,
+				DB4BCA7A1CAD700900C0FCE0 /* NBTextField.swift */,
+				DB4BCA7B1CAD700900C0FCE0 /* NBTimer.swift */,
+				DB4BCA7C1CAD700900C0FCE0 /* NBUserDefaults.swift */,
+				DB4BCA7D1CAD700900C0FCE0 /* NBView.swift */,
+				DB4BCA7E1CAD700900C0FCE0 /* NBView+Dialog.swift */,
+				DB4BCA7F1CAD700900C0FCE0 /* NBViewController.swift */,
+				DB4BCA801CAD700900C0FCE0 /* NerobluTemp.h */,
 			);
 			path = NerobluCore;
 			sourceTree = "<group>";
@@ -223,7 +250,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED4C3C41BDBDCDB00BDA4F5 /* NerobluCore.h in Headers */,
+				DB4BCAA51CAD700900C0FCE0 /* NerobluTemp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,8 +302,8 @@
 		CED4C39F1BDBDC8900BDA4F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = NeroBlu;
 				TargetAttributes = {
 					CED4C3A61BDBDC8900BDA4F5 = {
@@ -373,31 +400,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBFCEA3F1C19B47A0022DAF2 /* NBTableView.swift in Sources */,
-				DBFCEA3E1C19B47A0022DAF2 /* NBString.swift in Sources */,
-				DBFCEA411C19B47A0022DAF2 /* NBUserDefaults.swift in Sources */,
-				DBFCEA351C19B47A0022DAF2 /* NBDate.swift in Sources */,
-				CE7101E21C23B91100270EB8 /* NBTiledView.swift in Sources */,
-				DBFCEA3A1C19B47A0022DAF2 /* NBModel.swift in Sources */,
-				DBFCEA3C1C19B47A0022DAF2 /* NBNumber.swift in Sources */,
-				DBFCEA2F1C19B47A0022DAF2 /* NB.swift in Sources */,
-				DBFCEA311C19B47A0022DAF2 /* NBAlert.swift in Sources */,
-				DBFCEA331C19B47A0022DAF2 /* NBColor.swift in Sources */,
-				CE7101DE1C23B87E00270EB8 /* NBConstraint.swift in Sources */,
-				DBFCEA3D1C19B47A0022DAF2 /* NBReflection.swift in Sources */,
-				DBFCEA421C19B47A0022DAF2 /* NBView.swift in Sources */,
-				DBFCEA341C19B47A0022DAF2 /* NBCoreGraphic.swift in Sources */,
-				DBFCEA431C19B47A0022DAF2 /* NBViewController.swift in Sources */,
-				DBFCEA3B1C19B47A0022DAF2 /* NBNotification.swift in Sources */,
-				DBFCEA321C19B47A0022DAF2 /* NBAppDelegate.swift in Sources */,
-				CE7101DC1C23B84F00270EB8 /* NBButton.swift in Sources */,
-				DBFCEA381C19B47A0022DAF2 /* NBKeyboard.swift in Sources */,
-				DBFCEA401C19B47A0022DAF2 /* NBTimer.swift in Sources */,
-				DBFCEA361C19B47A0022DAF2 /* NBEntity.swift in Sources */,
-				DBFCEA371C19B47A0022DAF2 /* NBHud.swift in Sources */,
-				CE7101E01C23B8E200270EB8 /* NBTextField.swift in Sources */,
-				DBFCEA391C19B47A0022DAF2 /* NBLog.swift in Sources */,
-				DBFCEA301C19B47A0022DAF2 /* NBActionSheet.swift in Sources */,
+				DB4BCA921CAD700900C0FCE0 /* NBLog.swift in Sources */,
+				DB4BCA8A1CAD700900C0FCE0 /* NBCoreGraphic.swift in Sources */,
+				DB4BCA951CAD700900C0FCE0 /* NBNotification.swift in Sources */,
+				DB4BCAA21CAD700900C0FCE0 /* NBView.swift in Sources */,
+				DB4BCA8D1CAD700900C0FCE0 /* NBDirectory.swift in Sources */,
+				DB4BCA981CAD700900C0FCE0 /* NBReflection.swift in Sources */,
+				DB4BCA8B1CAD700900C0FCE0 /* NBDate.swift in Sources */,
+				DB4BCA861CAD700900C0FCE0 /* NBButton.swift in Sources */,
+				DB4BCA871CAD700900C0FCE0 /* NBCollectionType.swift in Sources */,
+				DB4BCA9D1CAD700900C0FCE0 /* NBString.swift in Sources */,
+				DB4BCA9A1CAD700900C0FCE0 /* NBSettingViewController.swift in Sources */,
+				DB4BCA901CAD700900C0FCE0 /* NBFile.swift in Sources */,
+				DB4BCA931CAD700900C0FCE0 /* NBModel.swift in Sources */,
+				DB4BCA961CAD700900C0FCE0 /* NBNumber.swift in Sources */,
+				DB4BCA891CAD700900C0FCE0 /* NBConstraint.swift in Sources */,
+				DB4BCA851CAD700900C0FCE0 /* NBAlert.swift in Sources */,
+				DB4BCA811CAD700900C0FCE0 /* App.swift in Sources */,
+				DB4BCAA01CAD700900C0FCE0 /* NBTimer.swift in Sources */,
+				DB4BCA831CAD700900C0FCE0 /* NB.swift in Sources */,
+				DB4BCAA31CAD700900C0FCE0 /* NBView+Dialog.swift in Sources */,
+				DB4BCA8C1CAD700900C0FCE0 /* NBDimension.swift in Sources */,
+				DB4BCA8F1CAD700900C0FCE0 /* NBError.swift in Sources */,
+				DB4BCA911CAD700900C0FCE0 /* NBKeyboard.swift in Sources */,
+				DB4BCAA11CAD700900C0FCE0 /* NBUserDefaults.swift in Sources */,
+				DB4BCA9F1CAD700900C0FCE0 /* NBTextField.swift in Sources */,
+				DB4BCA8E1CAD700900C0FCE0 /* NBEntity.swift in Sources */,
+				DB4BCA941CAD700900C0FCE0 /* NBNetworking.swift in Sources */,
+				DB4BCA9B1CAD700900C0FCE0 /* NBSlideMenu.swift in Sources */,
+				DB4BCA881CAD700900C0FCE0 /* NBColor.swift in Sources */,
+				DB4BCA841CAD700900C0FCE0 /* NBActionSheet.swift in Sources */,
+				DB4BCA9C1CAD700900C0FCE0 /* NBStoryboard.swift in Sources */,
+				DB4BCA9E1CAD700900C0FCE0 /* NBTableView.swift in Sources */,
+				DB4BCAA41CAD700900C0FCE0 /* NBViewController.swift in Sources */,
+				DB4BCA991CAD700900C0FCE0 /* NBSelectionDialogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

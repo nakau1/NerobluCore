@@ -2,7 +2,7 @@
 // NerobluCore
 // Copyright (C) NeroBlu. All rights reserved.
 // =============================================================================
-import Foundation
+import UIKit
 
 // MARK: - 関数 -
 
@@ -103,20 +103,18 @@ public struct NBLogLevel : OptionSetType {
     public static let All      = NBLogLevel([.Problems, .DB, .API, .Verbose])
     
     internal var shortName: String {
-        get {
-            switch self.rawValue {
-            case NBLogLevel.Debug       .rawValue: return "D"
-            case NBLogLevel.Information .rawValue: return "I"
-            case NBLogLevel.Warning     .rawValue: return "W"
-            case NBLogLevel.Error       .rawValue: return "E"
-            case NBLogLevel.Fetal       .rawValue: return "F"
-            case NBLogLevel.Query       .rawValue: return "Q"
-            case NBLogLevel.QueryResult .rawValue: return "R"
-            case NBLogLevel.Request     .rawValue: return "q"
-            case NBLogLevel.Response    .rawValue: return "r"
-            case NBLogLevel.Event       .rawValue: return "e"
-            default: return " "
-            }
+        switch self.rawValue {
+        case NBLogLevel.Debug       .rawValue: return "D"
+        case NBLogLevel.Information .rawValue: return "I"
+        case NBLogLevel.Warning     .rawValue: return "W"
+        case NBLogLevel.Error       .rawValue: return "E"
+        case NBLogLevel.Fetal       .rawValue: return "F"
+        case NBLogLevel.Query       .rawValue: return "Q"
+        case NBLogLevel.QueryResult .rawValue: return "R"
+        case NBLogLevel.Request     .rawValue: return "q"
+        case NBLogLevel.Response    .rawValue: return "r"
+        case NBLogLevel.Event       .rawValue: return "e"
+        default: return " "
         }
     }
 }
@@ -389,3 +387,19 @@ internal class NBLogger {
         return "[\(name)]"
     }
 }
+
+// MARK: - 簡易出力用拡張 -
+private func _wrapped_print(items: Any...) { items.forEach { print($0) } }
+
+extension String       { public func print() { _wrapped_print(self.isEmpty ? "(empty)" : self) } }
+extension NSString     { public func print() { (self as String).print() } }
+extension Int          { public func print() { _wrapped_print(self) } }
+extension Float        { public func print() { _wrapped_print(self) } }
+extension Double       { public func print() { _wrapped_print(self) } }
+extension CGFloat      { public func print() { _wrapped_print(self) } }
+extension Bool         { public func print() { _wrapped_print(self) } }
+extension Array        { public func print() { _wrapped_print(self) } }
+extension NSArray      { public func print() { (self as Array).print() } }
+extension Dictionary   { public func print() { _wrapped_print(self) } }
+extension NSDictionary { public func print() { (self as Dictionary).print() } }
+

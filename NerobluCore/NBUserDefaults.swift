@@ -4,126 +4,124 @@
 // =============================================================================
 import UIKit
 
-/// UserDefaultsの機能をラップした永続的データを取り扱うクラス
-public class NBUserDefaults {
+// MARK - App拡張 -
+
+public extension App {
     
-    private static let Prefix = "NBUserDefaults_"
+    /// 設定定義
+    public class Config {
+        
+        /// システム設定
+        public static let System = SystemConfig()
+    }
+}
+
+
+/// システム設定
+public class SystemConfig: NBUserDefaults {
     
-    /// 現在の設定情報
-    public class var currentConfigs: [String : AnyObject?] {
-        var ret = [String : AnyObject?]()
-        self.ud.dictionaryRepresentation().forEach {
-            let key = $0.0, val = $0.1
-            if key.hasPrefix(self.Prefix) {
-                ret[key] = val
-            }
-        }
+    /// 初回起動かどうか
+    public dynamic var isFirstLaunch = true
+}
+
+// MARK: - Main Definition -
+
+/// UserDefaultsを使用した永続的データを扱うクラス
+public class NBUserDefaults: NSObject {
+    
+    private let ud = NSUserDefaults.standardUserDefaults()
+    
+    private var domain = ""
+    
+    public override init() {
+        super.init()
+        
+        self.registerDomain()
+        self.registerDefaults()
+        self.setupProperty()
+        self.observe(true)
+    }
+    
+    deinit {
+        self.observe(false)
+    }
+}
+
+
+// MARK: - Setting -
+
+public extension NBUserDefaults {
+    
+    /// 永続的データとして扱わないプロパティ名を返却する
+    /// - returns: 永続的データとして扱わないプロパティ名の配列
+    class func ignoredProperties() -> [String] { return [] }
+}
+
+// MARK: - Public Methods -
+
+public extension NBUserDefaults {
+
+    /// 現在の保存内容を辞書形式で返却する
+    /// - returns: 現在の保存内容(キー:値)
+    func currentDefaults() -> [String : AnyObject] {
+        var ret = [String : AnyObject]()
+        let filter = { (key: String, val: AnyObject) -> Bool in key.hasSuffix(self.domain) }
+        let each   = { (key: String, val: AnyObject) -> Void in ret[key] = val }
+        self.ud.dictionaryRepresentation().filter(filter).forEach(each)
         return ret
     }
+}
+
+// MARK: - Private Methods -
+
+private extension NBUserDefaults {
     
-    /// 辞書からデフォルト値を設定する
-    /// - parameter dictionary: デフォルト値情報の入った辞書
-    public class func setDefaults(dictionary: [String : AnyObject?]) {
-        let currentConfigs = self.currentConfigs
-        var defaultConfigs = [String : AnyObject?]()
-        
-        dictionary.forEach {
-            let key = $0.0, val = $0.1
-            if currentConfigs[self.configKey(key)] == nil {
-                defaultConfigs[key] = val
+    private func registerDomain() {
+        self.domain = "@\( NSStringFromClass(self.dynamicType) )"
+    }
+    
+    private func registerDefaults() {
+        let dic = self.propertyNames.reduce([String : AnyObject]()) { (var dic, key) -> [String : AnyObject] in
+            dic[self.keyName(key)] = self.valueForKey(key)
+            return dic
+        }
+        self.ud.registerDefaults(dic)
+    }
+    
+    private func setupProperty() {
+        self.propertyNames.forEach { propertyName in
+            self.setValue(self.ud.objectForKey(self.keyName(propertyName)), forKey: propertyName)
+        }
+    }
+    
+    private func observe(start: Bool) {
+        self.propertyNames.forEach { propertyName in
+            if start {
+                self.addObserver(self, forKeyPath: propertyName, options: .New, context: nil)
+            } else {
+                self.removeObserver(self, forKeyPath: propertyName)
             }
         }
-        self.setObjects(defaultConfigs)
     }
     
-    /// 指定したキーの設定を削除する
-    /// - parameter key: キー
-    public class func removeKey(key: String) {
-        self.ud.removeObjectForKey(key)
+    private func keyName(name: String) -> String {
+        return "\(name)\(self.domain)"
+    }
+    
+    var propertyNames: [String] {
+        return Mirror(reflecting: self).children.flatMap { $0.label }.filter {
+            !self.dynamicType.ignoredProperties().contains($0)
+        }
+    }
+}
+
+// MARK: - KVO -
+
+public extension NBUserDefaults {
+    
+    public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        guard let keyPath = keyPath else { return }
+        self.ud.setObject(change?["new"], forKey: self.keyName(keyPath))
         self.ud.synchronize()
     }
-    
-    /// 辞書から一括で設定値を設定する
-    /// - parameter dictionary: 設定値情報の入った辞書
-    public class func setObjects(dictionary: [String : AnyObject?]) {
-        dictionary.forEach {
-            let key = $0.0, val = $0.1
-            self.setObject(val, key: key)
-        }
-    }
-    
-    /// 設定値をセットする
-    /// - parameter value: 値
-    /// - parameter key: キー
-    public class func setObject(value: AnyObject?, key: String) {
-        if let url = value as? NSURL {
-            self.ud.setURL(url, forKey: self.configKey(key))
-        }
-        else {
-            self.ud.setObject(value, forKey: self.configKey(key))
-        }
-        self.ud.synchronize()
-    }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func objectForKey(key: String) -> AnyObject? { return self.ud.objectForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func stringForKey(key: String) -> String? { return self.ud.stringForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func arrayForKey(key: String) -> [AnyObject]? { return self.ud.arrayForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func dictionaryForKey(key: String) -> [String : AnyObject]? { return self.ud.dictionaryForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func dataForKey(key: String) -> NSData? { return self.ud.dataForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func stringArrayForKey(key: String) -> [String]? { return self.ud.stringArrayForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func integerForKey(key: String) -> Int { return self.ud.integerForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func floatForKey(key: String) -> Float { return self.ud.floatForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func doubleForKey(key: String) -> Double { return self.ud.doubleForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func boolForKey(key: String) -> Bool { return self.ud.boolForKey(self.configKey(key)) }
-    
-    /// 指定したキーの値を取得する
-    /// - parameter key: キー
-    /// - returns: 値
-    public class func URLForKey(key: String) -> NSURL? { return self.ud.URLForKey(self.configKey(key)) }
-    
-    
-    private class func configKey(name: String) -> String {
-        return "\( self.Prefix )\( name )"
-    }
-    
-    private class var ud: NSUserDefaults { return NSUserDefaults.standardUserDefaults() }
 }

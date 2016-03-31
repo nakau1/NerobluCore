@@ -6,13 +6,13 @@ import UIKit
 
 /// アクションシートの処理を行うクラス
 ///
-///	NBActionSheet.show(self, options:[
-///		NBActionSheet.Option(title: "1つめ", style: .Default),
-///		NBActionSheet.Option(title: "2つめ", style: .Cancel),
-///		NBActionSheet.Option(title: "3つめ", style: .Destructive),
-///	]) { selectedOption in
-///		print("選択されたのは \(selectedOption.title), インデックスは \(selectedOption.index)")
-///	}
+///     NBActionSheet.show(self, options:[
+///         NBActionSheet.Option(title: "1つめ", style: .Default),
+///         NBActionSheet.Option(title: "2つめ", style: .Cancel),
+///         NBActionSheet.Option(title: "3つめ", style: .Destructive),
+///     ]) { selectedOption in
+///         print("選択されたのは \(selectedOption.title), インデックスは \(selectedOption.index)")
+///     }
 public class NBActionSheet {
     
     /// アクションシートのユーザ回答の選択肢
@@ -33,16 +33,14 @@ public class NBActionSheet {
         }
         
         /// 選択肢のインデックス
-        public var index: Int {
-            get { return indexNumber ?? -1 }
-        }
+        public var index: Int { return indexNumber ?? -1 }
         
         private var indexNumber: Int?
     }
     
     /// アクションシートのボタン押下時のイベントハンドラ
     /// - parameter Option: 選択された回答
-    public typealias DidTapHandler = ((Option)->Void)
+    public typealias DidTapHandler = (Option) -> Void
     
     /// アクションシートを表示する
     /// - parameter controller: 表示を行うビューコントローラ
@@ -77,6 +75,7 @@ public class NBActionSheet {
     }
     
     private class NBActionSheetAction : UIAlertAction {
+        
         private var option: Option?
     }
 }

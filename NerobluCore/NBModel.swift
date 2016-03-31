@@ -4,25 +4,35 @@
 // =============================================================================
 import UIKit
 
+// MARK: - App拡張 -
+
+public extension App {
+    
+    /// モデルインスタンス定義
+    public class Model {
+        // add use extension
+    }
+}
+
+// MARK: - NBModel -
+
 /// モデルの基底クラス
 public class NBModel : NSObject {
     
     /// エラーオブジェクト
-    private(set) var error: NSError?
+    public private(set) var error: NSError?
     
     /// エラーオブジェクトを作成する
     /// - parameter message: エラーメッセージ
     /// - parameter code: エラーコード
     /// - returns: エラーオブジェクト
     public func createError(message: String, code: Int = -1) -> NSError {
-        let domain = "\( NBReflection(self).fullClassName )ErrorDomain"
-        return NSError(domain: domain, code: code, userInfo: [NSLocalizedDescriptionKey: message])
+        return Error(message, code, "\( self.shortClassName )ErrorDomain")
     }
     
     /// エラーオブジェクトを自身にセットする
     /// - parameter message: エラーメッセージ
     /// - parameter code: エラーコード
-    /// - returns: エラーオブジェクト
     public func raiseError(message: String, code: Int = -1) {
         self.raiseError(self.createError(message, code: code))
     }

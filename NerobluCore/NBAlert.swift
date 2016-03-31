@@ -6,30 +6,41 @@ import UIKit
 
 /// アラートの処理を行うクラス
 ///
-///	NBAlert.showOK(self, message: "メッセージです")
+///     NBAlert.showOK(self, message: "メッセージです")
 ///
-///	NBAlert.showYesNo(self, message: "メッセージです") { selectedAnswer in
-///		if selectedAnswer.isPositive {
-///			// some process
-///		}
-///	}
+///     NBAlert.showYesNo(self, message: "メッセージです") { selectedAnswer in
+///         if selectedAnswer.isPositive {
+///             // some process
+///         }
+///     }
 ///
-///	NBAlert.showOKCancel(self, message: "メッセージです", title: "タイトル") { selectedAnswer in
-///		if selectedAnswer.isPositive {
-///			// some process
-///		}
-///	}
+///     NBAlert.showOKCancel(self, message: "メッセージです", title: "タイトル") { selectedAnswer in
+///         if selectedAnswer.isPositive {
+///             // some process
+///         }
+///     }
 public class NBAlert {
     
+    /// NBAlertのオプション
+    public struct NBAlertOptions {
+        /// 「OK」選択肢の表示文字列
+        public static var OKString = "OK"
+        /// 「はい」選択肢の表示文字列
+        public static var YesString = "はい"
+        /// 「いいえ」選択肢の表示文字列
+        public static var NoString = "いいえ"
+        /// 「キャンセル」選択肢の表示文字列
+        public static var CancelString = "キャンセル"
+    }
+    
     /// アラートに対するユーザの回答
-    public enum Answer: String {
-        case OK     = "OK"
-        case YES    = "はい"
-        case NO     = "いいえ"
-        case CANCEL = "キャンセル"
+    public enum Answer {
+        case OK
+        case YES
+        case NO
+        case CANCEL
         
-        /// ユーザが肯定的な選択をしたかどうかを取得する
-        /// - returns: ユーザが肯定的な選択をしたかどうか
+        /// ユーザが肯定的な選択をしたかどうかを返却する
         public var isPositive: Bool {
             switch (self) {
             case .OK, .YES:
@@ -39,15 +50,24 @@ public class NBAlert {
             }
         }
         
-        /// ユーザが否定的な選択をしたかどうかを取得する
-        /// - returns: ユーザが否定的な選択をしたかどうか
+        /// ユーザが否定的な選択をしたかどうかを返却する
         public var isNegative: Bool {
             return !self.isPositive
+        }
+        
+        /// 選択肢文字列
+        public var text: String {
+            switch (self) {
+            case .OK:     return NBAlertOptions.OKString
+            case .YES:    return NBAlertOptions.YesString
+            case .NO:     return NBAlertOptions.NoString
+            case .CANCEL: return NBAlertOptions.CancelString
+            }
         }
     }
     
     /// アラートのボタン押下時のイベントハンドラ
-    public typealias DidTapHandler = ((Answer)->Void)
+    public typealias DidTapHandler = (Answer) -> Void
     
     /// 「OK」のみのアラートを表示する
     /// - parameter controller: 表示を行うビューコントローラ
@@ -107,7 +127,7 @@ public class NBAlert {
     /// - parameter handler: アラートのボタン押下時のイベントハンドラ
     /// - returns: 新しいUIAlertActionオブジェクト
     private class func makeAction(answer: Answer, style: UIAlertActionStyle, handler: DidTapHandler?)->UIAlertAction {
-        return UIAlertAction(title: answer.rawValue, style: style) { action in
+        return UIAlertAction(title: answer.text, style: style) { action in
             if let handler = handler {
                 handler(answer)
             }

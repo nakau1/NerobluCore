@@ -25,7 +25,6 @@ public class NBKeyboardEvent : NSObject {
     /// デリゲート
     public weak var delegate: NBKeyboardEventDelegate?
     
-    private var inKeyboardAnimation = false
     private var keyboardHeight: CGFloat = CGFloat.min
     private var keyboardY:      CGFloat = CGFloat.min
     
@@ -52,9 +51,6 @@ public class NBKeyboardEvent : NSObject {
     
     // イベントハンドラ
     func willChangeKeyboardFrame(notify: NSNotification) {
-        if self.inKeyboardAnimation { return }
-        self.inKeyboardAnimation = true
-        
         guard
             let userInfo   = notify.userInfo,
             let beginFrame = userInfo[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue,
@@ -76,7 +72,7 @@ public class NBKeyboardEvent : NSObject {
         let endY   = crY(endFrame)
         
         // 別画面でキーボードを表示すると変数yに大きな整数が入ってしまうため
-        if endY > SCREEN_HEIGHT * 2 { return }
+        if endY > App.Dimen.Screen.Height * 2 { return }
         
         // 高さもY座標も変化していない場合は処理抜け
         if self.keyboardHeight == height && self.keyboardY == endY { return }
@@ -91,9 +87,7 @@ public class NBKeyboardEvent : NSObject {
                 let diff = endY - beginY
                 self.delegate?.keyboard?(willChangeKeyboardFrame: self, y: endY, height: height, diff: diff)
             },
-            completion: { finished in
-                self.inKeyboardAnimation = false
-            }
+            completion: { finished in }
         )
     }
 }
@@ -102,104 +96,11 @@ public class NBKeyboardEvent : NSObject {
 public extension NBViewController {
     
     /// キーボードイベント監視オブジェクト
-    public var keyboardEvent: NBKeyboardEvent? {
-        get {
-            return self.externalComponents["NBKeyboardEvent"] as? NBKeyboardEvent
+    public var keyboardEvent: NBKeyboardEvent {
+        let key = "NBKeyboardEvent"
+        if self.externalComponents[key] == nil {
+            self.externalComponents[key] = NBKeyboardEvent()
         }
-        set(v) {
-            self.externalComponents["NBKeyboardEvent"] = v
-        }
+        return self.externalComponents[key] as! NBKeyboardEvent
     }
 }
-
-/*
-public protocol UITextFieldDelegate : NSObjectProtocol {
-	
-
-	optional public func textFieldShouldBeginEditing(textField: UITextField) -> Bool // return NO to disallow editing.
-	optional public func textViewShouldBeginEditing(textView: UITextView) -> Bool
-
-
-	optional public func textFieldDidBeginEditing(textField: UITextField) // became first responder
-	optional public func textViewDidBeginEditing(textView: UITextView)
-
-
-	optional public func textFieldShouldEndEditing(textField: UITextField) -> Bool
-	optional public func textViewShouldEndEditing(textView: UITextView) -> Bool
-
-	optional public func textFieldDidEndEditing(textField: UITextField)
-	optional public func textViewDidEndEditing(textView: UITextView)
-
-	optional public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
-	optional public func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
-
-	optional public func textFieldShouldClear(textField: UITextField) -> Bool
-
-	optional public func textFieldShouldReturn(textField: UITextField) -> Bool
-}
-
-public protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
-	
-	
-
-	optional public func textViewDidChange(textView: UITextView)
-	
-
-	optional public func textViewDidChangeSelection(textView: UITextView)
-	
-
-	optional public func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool
-
-	optional public func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool
-}
-*/
-
-/*
-/// キーボードのフレームが変更される時
-func willKeyboardChangeFrame(notify: NSNotification) {
-	// アニメーション中は他の同名通知を無視
-	if inKeyboardAnimation { return }
-	inKeyboardAnimation = true
-	
-	guard
-		let userInfo = notify.userInfo,
-		let frameBegin = userInfo[UIKeyboardFrameBeginUserInfoKey]        as? NSValue,
-		let frameEnd   = userInfo[UIKeyboardFrameEndUserInfoKey]          as? NSValue,
-		let curve      = userInfo[UIKeyboardAnimationCurveUserInfoKey]    as? NSNumber,
-		let duration   = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval
-		else {
-			return
-	}
-	
-	let beginY   = frameBegin.CGRectValue().minY
-	let endY     = frameEnd.CGRectValue().minY
-	let options  = UIViewAnimationOptions(rawValue: UInt(curve))
-	
-	UIView.animateWithDuration(duration, delay: 0, options: options,
-		animations: {
-			let diff = endY - beginY
-			self.tableView.frame.origin.y += diff
-		},
-		completion: { finished in
-			self.inKeyboardAnimation = false
-	})
-}
-
-/// テーブル内からのイベント通知の監視を開始または終了する
-/// - parameters:
-///   - start: true=開始 / false=終了
-func observeEventsOfContents(start: Bool) {
-	let nc = NSNotificationCenter.defaultCenter()
-	let eventsOfContents = [
-		"willKeyboardChangeFrame:" : UIKeyboardWillChangeFrameNotification,
-	]
-	
-	for (selector, name) in eventsOfContents {
-		if start {
-			nc.addObserver(self, selector: Selector(selector), name: name, object: nil)
-		} else {
-			nc.removeObserver(self, name: name, object: nil)
-		}
-	}
-}
-*/

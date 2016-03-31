@@ -4,6 +4,8 @@
 // =============================================================================
 import UIKit
 
+// MARK: - NBReflection -
+
 /// クラスについての処理を行うクラス
 public class NBReflection {
     
@@ -15,17 +17,17 @@ public class NBReflection {
         self.target = target
     }
     
-    /// パッケージ名のないクラス名
+    /// パッケージ名を含めないクラス名を返却する
     public var shortClassName: String {
         return self.className(false)
     }
     
-    /// パッケージ名を含めたクラス名
+    /// パッケージ名を含めたクラス名を返却する
     public var fullClassName: String {
         return self.className(true)
     }
     
-    /// パッケージ名を取得する
+    /// パッケージ名を返却する
     public var packageName: String? {
         let full  = self.fullClassName
         let short = self.shortClassName
@@ -67,4 +69,18 @@ public class NBReflection {
         }
         return name
     }
+}
+
+// MARK: - NSObject拡張 -
+
+public extension NSObject {
+    
+    /// パッケージ名を含めないクラス名を返却する
+    public var shortClassName: String { return NBReflection(self).shortClassName }
+    
+    /// パッケージ名を含めたクラス名を返却する
+    public var fullClassName: String { return NBReflection(self).fullClassName }
+    
+    /// パッケージ名を返却する
+    public var packageName: String? { return NBReflection(self).packageName }
 }
