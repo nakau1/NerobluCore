@@ -4,21 +4,21 @@
 // =============================================================================
 import UIKit
 
-/// UIViewの拡張
+// MARK: - UIView拡張 -
 public extension UIView {
     
     /// XIBからビューインスタンスを生成する
     ///
     /// 引数を省略した場合は、呼び出したクラス名からXIBファイル名を判定します
     ///
-    ///	if let customView = CustmoView.loadFromNib() as? CustomView {
-    ///	    self.view.addSubview(customView)
-    ///	}
+    ///     if let customView = CustmoView.loadFromNib() as? CustomView {
+    ///         self.view.addSubview(customView)
+    ///     }
     ///
     /// - parameter nibName: XIBファイル名
     /// - parameter bundle: バンドル
     /// - returns: 新しいビュー
-    public class func loadFromNib(nibName: String? = nil, bundle: NSBundle? = nil)->UIView? {
+    public class func loadFromNib(nibName: String? = nil, bundle: NSBundle? = nil) -> UIView? {
         var name = ""
         if let nibName = nibName {
             name = nibName
@@ -30,14 +30,12 @@ public extension UIView {
         return nib.instantiateWithOwner(nil, options: nil).first as? UIView
     }
     
-    /// 最上部のビュー(自身が最上部ならば自身を返す)
+    /// 最上部のビューを返却する(自身が最上部ならば自身を返す)
     public var rootView : UIView {
-        get {
-            if let superview = self.superview {
-                return superview.rootView
-            }
-            return self
+        if let superview = self.superview {
+            return superview.rootView
         }
+        return self
     }
 	
 	/// 親ビュー(nilを渡すと親ビューから削除される)
@@ -58,24 +56,28 @@ public extension UIView {
 	public func removeAllSubviews() {
 		self.subviews.forEach { $0.removeFromSuperview() }
 	}
+    
+    /// ビューのX座標
+    public var x: CGFloat {
+        get    { return CGRectGetMinX(self.frame) }
+        set(v) { self.frame.origin.x = v }
+    }
+    
+    /// ビューのY座標
+    public var y: CGFloat {
+        get    { return CGRectGetMinY(self.frame) }
+        set(v) { self.frame.origin.y = v }
+    }
+    
+    /// ビューの幅
+    public var width: CGFloat {
+        get    { return CGRectGetWidth(self.frame) }
+        set(v) { self.frame.size.width = v }
+    }
+    
+    /// ビューの高さ
+    public var height: CGFloat {
+        get    { return CGRectGetHeight(self.frame) }
+        set(v) { self.frame.size.height = v }
+    }
 }
-
-/// すべての自動リサイズ定義
-public let UIViewAutoresizingAllSize : UIViewAutoresizing = [
-	.FlexibleWidth,
-	.FlexibleHeight,
-]
-
-/// すべての自動リサイズ定義
-public let UIViewAutoresizingAllMargin : UIViewAutoresizing = [
-	.FlexibleTopMargin,
-	.FlexibleLeftMargin,
-	.FlexibleBottomMargin,
-	.FlexibleRightMargin,
-]
-
-/// すべての自動リサイズ定義
-public let UIViewAutoresizingAll : UIViewAutoresizing = [
-	UIViewAutoresizingAllSize,
-	UIViewAutoresizingAllMargin,
-]
