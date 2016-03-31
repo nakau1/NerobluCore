@@ -4,239 +4,128 @@
 // =============================================================================
 import UIKit
 
-// MARK: - アダプタ -
+// MARK: - NBTableAdapter -
 
-/// テーブルビューアダプタクラス
+/// テーブルビューを管理するアダプタクラス
 public class NBTableAdapter : NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    /// 自身が管理するテーブルビュー
+    /// 管理するテーブルビュー
     public weak var tableView: UITableView!
     
-    /// 自身を管理するビューコントローラの参照
+    /// 関連するビューコントローラの参照
     public weak var controller: UIViewController?
     
-    /// セルの高さが伸縮するかどうか
-    public var isFlexibleCellHeight: Bool = true
-    
-    private var sections = [NBTableSection]()
-    
-    private var registeredCells = [String]()
-    
     /// イニシャライザ
-    /// - parameter tableView: 自身が管理するテーブルビュー
-    /// - parameter controller: 自身を管理するビューコントローラの参照
-    public init(tableView: UITableView, controller: UIViewController? = nil) {
+    /// - parameter tableView: 管理するテーブルビュー
+    /// - parameter controller: 関連するビューコントローラの参照
+    /// - parameter flexibleHeight: 高さを動的に変更するかどうか
+    public required init(tableView: UITableView, controller: UIViewController? = nil, flexibleHeight: Bool = true) {
         super.init()
-        
-        tableView.delegate   = self
-        tableView.dataSource = self
-        
-        self.controller = controller
+        if flexibleHeight {
+            tableView.estimatedRowHeight = 100
+            tableView.rowHeight = UITableViewAutomaticDimension
+        }
         self.tableView  = tableView
+        self.controller = controller
     }
     
     /// テーブルビューのリロードを行う
     public func reload() {
-        self.sections = self.setupSections()
-        self.registerCells(self.sections)
-        
-        if self.isFlexibleCellHeight {
-            self.tableView.estimatedRowHeight = self.rowHeight()
-            self.tableView.rowHeight  = UITableViewAutomaticDimension
-        } else {
-            self.tableView.rowHeight = self.rowHeight()
-        }
-        
+        self.tableView.delegate   = self
+        self.tableView.dataSource = self
         self.tableView.reloadData()
     }
     
-    /// セクションのセットアップを行う(継承先でオーバライドして指定する)
-    /// - returns: NBTableSectionオブジェクトの配列
-    public func setupSections() -> [NBTableSection] {
-        return [NBTableSection()]
+    /// 行数を返却する(継承先でオーバライドして指定する)
+    /// - parameter section: セクションインデックス
+    /// - returns: 行数
+    public func numberOfRowsInSection(section: Int) -> Int {
+        return 0
     }
     
-    /// セルの高さ
-    ///
-    /// isFlexibleCellHeight=false時は、この高さが採用される。
-    /// isFlexibleCellHeight=true時は、この高さがestimatedRowHeightの値として使用される
-    /// - returns: セルの高さ
-    public func rowHeight() -> CGFloat { return 44.0 }
-    
-    // セルの登録
-    private func registerCells(sections: [NBTableSection]) {
-        var i = 0
-        for section in sections {
-            section.adapter = self
-            section.index   = i++
-            for row in 0..<section.rowNumber {
-                let cellIdentifier = section.cellIdentifierAtRow(row)
-                if self.registeredCells.contains(cellIdentifier) { continue }
-                
-                if let _ = NSBundle.mainBundle().pathForResource(cellIdentifier, ofType: "nib") {
-                    let nib = UINib(nibName: cellIdentifier, bundle: nil)
-                    self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
-                } else {
-                    let cls = section.cellClassAtRow(row)
-                    self.tableView.registerClass(cls, forCellReuseIdentifier: cellIdentifier)
-                }
-                self.registeredCells.append(cellIdentifier)
-            }
-        }
+    /// セルの再利用ID文字列を返却する(継承先でオーバライドして指定する)
+    /// - parameter indexPath: インデックスパス
+    /// - returns: セルの再利用ID文字列
+    public func cellIdentifier(indexPath: NSIndexPath) -> String {
+        return NBTableCellDefaultIdentifier
     }
     
-    // MARK: テーブルビューデリゲート/データソース
-    
-    // セクション数
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.sections.count
+    /// セルを返却する(継承先でオーバライドして指定する)
+    /// - parameter indexPath: インデックスパス
+    /// - parameter reusedCell: 再利用されてきたセル
+    /// - returns: セル
+    public func cellForRowAtIndexPath(indexPath: NSIndexPath, reusedCell: UITableViewCell) -> UITableViewCell {
+        return reusedCell
     }
     
-    // 行数
+    /// セルが選択された時の処理を行う
+    /// - parameter indexPath: インデックスパス
+    public func didSelectRowAtIndexPath(indexPath: NSIndexPath) {} // NOP.
+    
+    // MARK: UITableViewDelegate / UITableViewDataSource
+    
+    /// 行数
     public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections[section].rowNumber
+        return self.numberOfRowsInSection(section)
     }
     
-    // セル
+    /// セル
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let sec = indexPath.section, row = indexPath.row
-        let section = self.sections[sec]
-        let cellIdentifier = section.cellIdentifierAtRow(row)
-        
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) else {
-            return UITableViewCell()
+        let identifier = self.cellIdentifier(indexPath)
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(identifier) else {
+            return UITableViewCell(style: .Default, reuseIdentifier: identifier)
         }
-        if let nbcell = cell as? NBTableCell {
-            nbcell.section = section
-            nbcell.index   = row
-            nbcell.data    = section.dataAtRow(row)
-            nbcell.setup()
+        if let nb = cell as? NBTableCell {
+            nb.adapter    = self
+            nb.controller = self.controller
+            nb.tableView  = tableView
+            nb.indexPath  = indexPath
         }
-        
-        return section.setup(cell, row: row)
+        return self.cellForRowAtIndexPath(indexPath, reusedCell: cell)
     }
     
-    // セル選択時
+    /// 選択時
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        self.sections[indexPath.section].didSelectAtRow(indexPath.row)
-    }
-    
-    // セクションヘッダタイトル
-    public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sections[section].title
+        self.didSelectRowAtIndexPath(indexPath)
     }
 }
 
-// MARK: - セクション -
+// MARK: - NBTableCell -
 
-/// テーブルビューのセクションクラス
-public class NBTableSection : NSObject {
-    
-    /// 自身のセクションインデックス
-    public private(set) var index: Int = 0
-    
-    /// セクションを管理するアダプタオブジェクトの参照
-    public weak var adapter: NBTableAdapter?
-    
-    /// セクションのタイトル(継承先でオーバライドして指定する)
-    /// 
-    /// 自動的にセクションヘッダとして使用される。
-    /// 表示しない場合はオーバライドしないかもしくはnilを返すこと
-    public var title: String? { return nil }
-    
-    /// セクションの行数(継承先でオーバライドして指定する)
-    public var rowNumber: Int { return 0 }
-    
-    /// 指定した行で使用するセルのクラスを返却する(継承先でオーバライドして指定する)
-    /// - parameter row: 行インデックス
-    /// - returns: セルのクラス
-    public func cellClassAtRow(row: Int) -> UITableViewCell.Type {
-        return NBTableCell.self
-    }
-    
-    /// 指定した行で使用するセルの再利用ID文字列を返却する(継承先でオーバライドして指定する)
-    ///
-    /// 特段の理由がなければオーバライドの必要はない
-    /// - parameter row: 行インデックス
-    /// - returns: セルの再利用ID文字列
-    public func cellIdentifierAtRow(row: Int) -> String {
-        return NBReflection(self.cellClassAtRow(row)).shortClassName
-    }
-    
-    /// セルに割り当てられるデータを返却する(継承先でオーバライドして指定する)
-    /// - parameter row: 行インデックス
-    /// - returns: セルに割り当てられるデータ
-    public func dataAtRow(row: Int) -> AnyObject? {
-        return nil
-    }
-    
-    /// セルのセットアップを行う(継承先でオーバライドして指定する)
-    /// 
-    /// セルのセットアップはNBTableCell#setup()で個別に行うこともできるが、
-    /// このメソッドは非NBTableCellのセルクラスにも対応することができる。
-    /// もしNBTableCell#setup()を同時に実装した場合は、このメソッドのほうが後に呼ばれることに留意すること。
-    /// - parameter originalCell: セットアップ対象の再利用されたセルオブジェクト
-    /// - parameter row: 行インデックス
-    /// - returns: セットアップされたセルオブジェクト
-    public func setup(originalCell: UITableViewCell, row: Int) -> UITableViewCell {
-        return originalCell
-    }
-    
-    /// セルが選択された時の処理(継承先でオーバライドして指定する)
-    /// - parameter row: 行インデックス
-    public func didSelectAtRow(row: Int) {} // NOP.
-}
-
-// MARK: - セル -
+public let NBTableCellDefaultIdentifier = "cell"
 
 /// テーブルビューセルの基底クラス
 public class NBTableCell : UITableViewCell {
     
-    /// XIBを使用しない場合のセルスタイル
-    public class var style: UITableViewCellStyle { return .Default }
-    
-    /// セルが属するセクションオブジェクト
-    public weak var section: NBTableSection?
-    
-    /// セルに割り当てられるデータ
-    public var data: AnyObject?
-    
     /// 自身の行インデックス
-    public private(set) var index: Int = 0
+    public var row: Int = 0
     
-    /// セルの初期処理を行う
-    public func initialize() {}
+    /// セクションインデックス
+    public var section: Int = 0
+    
+    /// アダプタオブジェクトの参照
+    public weak var adapter: NBTableAdapter?
+    
+    /// 関連するビューコントローラの参照
+    public weak var controller: UIViewController?
+    
+    /// 所属するテーブルビューの参照
+    public weak var tableView: UITableView?
     
     /// インデックスパス
     public var indexPath: NSIndexPath {
-        return NSIndexPath(forRow: self.index, inSection: self.section?.index ?? 0)
-    }
-    
-    /// セルのセットアップを行う
-    public func setup() {
-        // 下記の実装は最もシンプルな実装です
-        if let text = self.section?.dataAtRow(self.index) as? String {
-            self.textLabel?.text = text
+        get {
+            return NSIndexPath(self.row, self.section)
         }
-    }
-    
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        self.initialize() // XIBがある場合はこちらが呼ばれる
-    }
-    
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: self.dynamicType.style, reuseIdentifier: reuseIdentifier)
-        self.initialize() // XIBがない場合はこちらが呼ばれる
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder) // 特に何もしないが実装しないと怒られる
+        set(v) {
+            self.row     = v.row
+            self.section = v.section
+        }
     }
 }
 
-// MARK: - ビューコントローラ拡張 -
+// MARK: - NBViewController拡張 -
 public extension NBViewController {
     
     /// テーブルビューアダプタオブジェクト
@@ -247,5 +136,209 @@ public extension NBViewController {
         set(v) {
             self.externalComponents["NBTableAdapter"] = v
         }
+    }
+}
+
+// MARK: - UITableView拡張 -
+public extension UITableView {
+    
+    public func moveToTop(animated: Bool = true) {
+        self.scrollToRowAtIndexPath(NSIndexPath(0), atScrollPosition: .Top, animated: animated)
+    }
+}
+
+// MARK: - NSIndexPath拡張 -
+public extension NSIndexPath {
+    
+    public convenience init(_ row: Int, _ section: Int = 0) {
+        self.init(forRow: row, inSection: section)
+    }
+}
+
+// MARK: - NBTableCellBackgrounViewOptions -
+
+/// NBTableCellBackgrounViewのオプション
+public struct NBTableCellBackgrounViewOptions {
+    
+    /// イニシャライザ
+    /// - parameter highlightedBackgroundColor: ハイライト時の背景色
+    /// - parameter separatorColor: セパレータ色
+    public init(highlightedBackgroundColor: UIColor? = nil, separatorColor: UIColor? = nil) {
+        if let color = highlightedBackgroundColor { self.highlightedBackgroundColor = color }
+        if let color = separatorColor             { self.separatorColor             = color }
+    }
+    
+    /// 選択スタイル(highlightedBackgroundColorが指定されていない場合は、この値によって背景色を決定する)
+    public var selectionStyle: UITableViewCellSelectionStyle = .Blue
+    
+    /// ハイライト時の背景色
+    public var highlightedBackgroundColor: UIColor?
+    
+    /// 通常時の背景色
+    public var backgroundColor = UIColor.whiteColor()
+    
+    /// セパレータ色
+    public var separatorColor = UIColor(rgb: 0xC8C7CC)
+    
+    /// セパレータの太さ
+    public var separatorWidth: CGFloat = 0.5
+    
+    /// セパレータの左側マージン値
+    public var separatorLeftMargin: CGFloat = 20.0
+    
+    /// セパレータの右側マージン値
+    public var separatorRightMargin: CGFloat = 0.0
+}
+
+// MARK: - NBTableCellBackgrounView -
+
+/// テーブルビューセルの汎用背景ビュー
+public class NBTableCellBackgrounView : UIView {
+    
+    /// ハイライト用背景ビューかどうか
+    private var highlighted = false
+    
+    /// オプション
+    private var options: NBTableCellBackgrounViewOptions!
+    
+    /// イニシャライザ(内部用)
+    private convenience init(highlighted: Bool, options: NBTableCellBackgrounViewOptions) {
+        self.init()
+        self.highlighted = highlighted
+        self.options     = options
+    }
+    
+    /// 描画
+    override public func drawRect(rect: CGRect) {
+        let opt = self.options
+        let context = UIGraphicsGetCurrentContext()
+        
+        opt.backgroundColor.setFill(); UIRectFill(rect)
+        
+        CGContextMoveToPoint(context, 0, 0)
+        CGContextSetFillColorWithColor(context, self.properBackgroundColor(opt).CGColor)
+        CGContextFillRect(context, rect)
+        
+        let minX: CGFloat = opt.separatorLeftMargin
+        let maxX: CGFloat = CGRectGetMaxX(rect) - opt.separatorRightMargin
+        let y:    CGFloat = CGRectGetMaxY(rect) - opt.separatorWidth / 2
+        CGContextSetStrokeColorWithColor(context, opt.separatorColor.CGColor)
+        CGContextSetLineWidth(context, opt.separatorWidth)
+        CGContextMoveToPoint(context, minX, y)
+        CGContextAddLineToPoint(context, maxX, y)
+        CGContextStrokePath(context)
+    }
+    
+    /// オプションとメンバ変数を元に適切な背景色を返却する
+    /// - parameter opt: オプション
+    /// - returns: 背景色
+    private func properBackgroundColor(opt: NBTableCellBackgrounViewOptions) -> UIColor {
+        if !self.highlighted {
+            return UIColor.clearColor()
+        } else {
+            if let hbg = self.options.highlightedBackgroundColor {
+                return hbg
+            } else {
+                return self.backgroundColorWithSelectionStyle(self.options.selectionStyle)
+            }
+        }
+    }
+    
+    /// 選択スタイルから背景色を返却する
+    /// - parameter selectionStyle: 選択スタイル
+    /// - returns: 背景色
+    private func backgroundColorWithSelectionStyle(selectionStyle: UITableViewCellSelectionStyle) -> UIColor {
+        switch selectionStyle {
+        case .None: return UIColor.clearColor()
+        case .Blue: return UIColor(red: 0.408, green: 0.757, blue: 0.992, alpha: 0.5)
+        default:    return UIColor(white: 0.8, alpha: 0.5)
+        }
+    }
+}
+
+public extension UITableViewCell {
+    
+    /// テーブルセルに背景ビューをセットする
+    /// - parameter options: オプション
+    /// - parameter tableView: optionsを省略した場合に、テーブルビューの設定が自動的に反映されます
+    public func setTableCellBackgrounView(options options: NBTableCellBackgrounViewOptions? = nil, tableView: UITableView? = nil) {
+        
+        // オプションの設定
+        var opt: NBTableCellBackgrounViewOptions
+        if let _ = options {
+            opt = options!
+        } else {
+            opt = NBTableCellBackgrounViewOptions()
+            if let table = tableView {
+                if let color = table.backgroundColor { opt.backgroundColor = color }
+                if let color = table.separatorColor  { opt.separatorColor  = color }
+                opt.separatorLeftMargin  = table.separatorInset.left
+                opt.separatorRightMargin = table.separatorInset.right
+                opt.selectionStyle       = self.selectionStyle
+            }
+        }
+        // 背景ビューの当て込み
+        self.backgroundView         = NBTableCellBackgrounView(highlighted: false, options: opt)
+        self.selectedBackgroundView = NBTableCellBackgrounView(highlighted: true,  options: opt)
+    }
+}
+
+// MARK: - NBTableExternalViewOptions -
+
+/// NBTableExternalViewのオプション
+public struct NBTableExternalViewOptions {
+    
+    /// 文字色
+    public var textColor = UIColor(rgb: 0x94949A)
+    
+    /// 背景色
+    public var backgroundColor = UIColor.clearColor()
+    
+    /// フォント
+    public var font = UIFont.systemFontOfSize(16.0)
+    
+    /// セパレータの左側マージン値
+    public var insets = UIEdgeInsets(top: 4.0, left: 20.0, bottom: 4.0, right: 12.0)
+    
+    /// テキスト揃え
+    public var align = NSTextAlignment.Left
+}
+
+// MARK: - NBTableExternalView -
+
+/// テーブルビューのヘッダ/フッタ用の汎用ビュー
+public class NBTableExternalView : UIView {
+    
+    /// イニシャライザ
+    /// - parameter text: テキスト
+    /// - parameter tableView: テーブルビューの参照
+    /// - parameter opt: NBTableExternalViewのオプション
+    public convenience init(text: String, tableView: UITableView, opt: NBTableExternalViewOptions = NBTableExternalViewOptions()) {
+        self.init()
+        self.backgroundColor = opt.backgroundColor
+        
+        let max = crW(tableView.frame) - (opt.insets.left + opt.insets.right)
+        
+        let label = UILabel()
+        label.text          = text
+        label.numberOfLines = 0
+        label.textAlignment = opt.align
+        label.font          = opt.font
+        label.textColor     = opt.textColor
+        
+        var labelFrame = crZ()
+        labelFrame.size.width  = max
+        labelFrame.size.height = label.sizeThatFits(cs(max, CGFloat.max)).height
+        labelFrame.origin.x    = opt.insets.left
+        labelFrame.origin.y    = opt.insets.top
+        
+        label.frame = labelFrame
+        self.addSubview(label)
+        
+        var selfFrame = crZ()
+        selfFrame.size.width  = opt.insets.left + crW(labelFrame) + opt.insets.right
+        selfFrame.size.height = opt.insets.top  + crH(labelFrame) + opt.insets.bottom
+        
+        self.frame = selfFrame
     }
 }

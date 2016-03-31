@@ -17,17 +17,10 @@ public enum NSWeek : Int {
     public static let count = 7
 }
 
-/// NSDateの拡張
+// MARK: - NSDateの拡張 -
 public extension NSDate {
     
     @nonobjc public static var localeIdentifier = "ja"
-    
-    @nonobjc public static let FormatDefault   = "\(NSDate.FormatYMD) \(NSDate.FormatHIS)"
-    @nonobjc public static let FormatDefaultJp = "\(NSDate.FormatYMDJp)\(NSDate.FormatHISJp)"
-    @nonobjc public static let FormatYMD       = "yyyy-MM-dd"
-    @nonobjc public static let FormatHIS       = "HH:mm:ss"
-    @nonobjc public static let FormatYMDJp     = "yyyy年MM月dd日"
-    @nonobjc public static let FormatHISJp     = "HH時mm分ss秒"
     
     // MARK: コンポーネント値
     
@@ -88,14 +81,14 @@ public extension NSDate {
     /// 引数"locale"を省略すると月曜日ならば"月"を返しますが
     /// 下記のように実装すると"Fri"という文字列が帰ります
     ///
-    ///	NSDate().weekName(locale: NSLocale(localeIdentifier: "en"))
+    ///     NSDate().weekName(locale: NSLocale(localeIdentifier: "en"))
     ///
     /// 引数"formatClosure"を省略すると月曜日ならば"月"を返しますが
     /// 下記のように実装すると"月曜日"という文字列が帰ります
     ///
-    ///	NSDate().weekName() { fmt, i in
-    ///	  return fmt.weekdaySymbols[i]
-    ///	}
+    ///     NSDate().weekName() { fmt, i in
+    ///         return fmt.weekdaySymbols[i]
+    ///     }
     ///
     /// - parameter locale: ロケール
     /// - parameter formatClosure: 曜日取得の処理
@@ -116,9 +109,9 @@ public extension NSDate {
     /// 引数を省略すると11月ならば"11月"を返しますが
     /// 下記のように実装すると"November"という文字列が帰ります
     ///
-    /// NSDate().monthName(locale: NSLocale(localeIdentifier: "en")) { fmt, i in
-    ///	  return fmt.monthSymbols[i]
-    ///	}
+    ///     NSDate().monthName(locale: NSLocale(localeIdentifier: "en")) { fmt, i in
+    ///         return fmt.monthSymbols[i]
+    ///     }
     ///
     /// - parameter locale: ロケール
     /// - parameter formatClosure: 月取得の処理
@@ -317,16 +310,38 @@ public extension NSDate {
         return ret
     }
     
-    //MARK: 文字列変換
+    // MARK: 文字列変換
     
-    /// 指定したフォーマットを基に文字列に変換する
+    /// 変換フォーマット
+    public enum StringFormat: String {
+        case Default        = "yyyy-MM-dd HH:mm:ss"
+        case DefaultSlashed = "yyyy/MM/dd HH:mm:ss"
+        case DefaultJp      = "yyyy年MM月dd日HH時mm分ss秒"
+        case YMD            = "yyyy-MM-dd"
+        case YMDSlashed     = "yyyy/MM/dd"
+        case HIS            = "HH:mm:ss"
+        case YMDJp          = "yyyy年MM月dd日"
+        case HISJp          = "HH時mm分ss秒"
+    }
+    
+    /// 指定した日付フォーマットを基に文字列に変換する
     /// 
-    ///	var str = NSDate().toString("yyyy年MM月dd日") 
+    ///     var str = NSDate().toString("yyyy年MM月dd日")
     /// 
     /// - parameter format: 日付フォーマット
     /// - returns: 日付文字列
-    public func toString(format: String = NSDate.FormatDefault) -> String {
+    public func toString(format: String = StringFormat.Default.rawValue) -> String {
         return NSDate.dateFormatter(format).stringFromDate(self)
+    }
+    
+    /// 指定した変換フォーマットを基に文字列に変換する
+    ///
+    ///     var str = NSDate().toString(.DefaultSlashed)
+    ///
+    /// - parameter format: 変換フォーマット
+    /// - returns: 日付文字列
+    public func toString(format: StringFormat = .Default) -> String {
+        return NSDate.dateFormatter(format.rawValue).stringFromDate(self)
     }
     
     // MARK: 汎用プライベート処理
@@ -354,12 +369,12 @@ public extension NSDate {
     }
 }
 
-/// 文字列の拡張
+// MARK: - String拡張 -
 public extension String {
     
     /// 文字列を指定したフォーマットを基にNSDateに変換する
     /// 
-    ///	var date = "2014-3-15".toDate("yyyy-MM-dd") 
+    ///     var date = "2014-3-15".toDate("yyyy-MM-dd")
     /// 
     /// - parameter format: 日付フォーマット
     /// - returns: NSDateオブジェクト(変換不可時はnil)

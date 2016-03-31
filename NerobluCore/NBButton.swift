@@ -10,6 +10,8 @@ public enum NBButtonLayout {
     case LeftAlign(edge:CGFloat, interval:CGFloat)
 }
 
+// MARK: - NBButton -
+
 /// カスタムなボタンクラス
 /// 
 /// このボタンクラスは以下の機能があります
@@ -25,8 +27,8 @@ public enum NBButtonLayout {
     
     /// 角丸の半径
     @IBInspectable public var cornerRadius : Float = 0.0 {
-        didSet {
-            self.layer.cornerRadius = CGFloat(self.cornerRadius)
+        didSet { let v = self.cornerRadius
+            self.layer.cornerRadius = CGFloat(v)
         }
     }
     
@@ -34,16 +36,16 @@ public enum NBButtonLayout {
     
     /// 枠線の太さ
     @IBInspectable public var borderWidth : Float = 0.0 {
-        didSet {
-            self.layer.borderWidth = CGFloat(self.borderWidth)
+        didSet { let v = self.borderWidth
+            self.layer.borderWidth = CGFloat(v)
         }
     }
     
     /// 枠線の色
     @IBInspectable public var borderColor : UIColor? {
-        didSet {
-            self.originalBorderColor = self.borderColor
-            self.layer.borderColor   = self.borderColor?.CGColor
+        didSet { let v = self.borderColor
+            self.originalBorderColor = v
+            self.layer.borderColor   = v?.CGColor
         }
     }
     
@@ -51,24 +53,24 @@ public enum NBButtonLayout {
     
     /// 通常文字色
     @IBInspectable public var normalTitleColor : UIColor? = nil {
-        didSet {
-            self.setTitleColor(self.normalTitleColor, forState: .Normal)
+        didSet { let v = self.normalTitleColor
+            self.setTitleColor(v, forState: .Normal)
         }
     }
     
     /// 通常背景色
     /// setTitleColor(_:forState:)を使用せずに設定できる
     @IBInspectable public var normalBackgroundColor : UIColor? = nil {
-        didSet {
-            self.originalBackgroundColor = self.normalBackgroundColor
-            self.backgroundColor         = self.normalBackgroundColor
+        didSet { let v = self.normalBackgroundColor
+            self.originalBackgroundColor = v
+            self.backgroundColor         = v
         }
     }
     
     /// ハイライト時の文字色
     @IBInspectable public var highlightedTitleColor : UIColor? = nil {
-        didSet {
-            self.setTitleColor(self.highlightedTitleColor, forState: .Highlighted)
+        didSet { let v = self.highlightedTitleColor
+            self.setTitleColor(v, forState: .Highlighted)
         }
     }
     
